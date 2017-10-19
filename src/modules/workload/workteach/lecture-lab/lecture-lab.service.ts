@@ -7,7 +7,7 @@ import { Model } from 'mongoose';
 @Component()
 export class LectureLabsService {
     constructor(
-        @Inject('WorkteachBachelorTeachModelToken') private readonly lectureLabModel: Model<ILectureLab>) { }
+        @Inject('LectureLabModelToken') private readonly lectureLabModel: Model<ILectureLab>) { }
     findAll(): Observable<ILectureLab[]> {
         return Observable.of([]);
     }
