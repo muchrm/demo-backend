@@ -1,15 +1,15 @@
 import { Test } from '@nestjs/testing';
-import { WorkteachBachelorTeachService } from './workteach-bachelor-teach.service';
+import { LectureLabsService } from './lecture-lab.service';
 import { Observable } from 'rxjs';
 describe('Workteach Bachelor Teach Service', () => {
-  let workteachBachelorTeachService: WorkteachBachelorTeachService;
+  let lectureLabsService: LectureLabsService;
   beforeEach(() => {
-    workteachBachelorTeachService = new WorkteachBachelorTeachService();
+    lectureLabsService = new LectureLabsService();
   });
   describe('findAll', () => {
     it('should return an array of Workteach Bachelor Teach', async () => {
       const want = [];
-      workteachBachelorTeachService.findAll().subscribe((result) => {
+      lectureLabsService.findAll().subscribe((result) => {
         expect(result).toEqual(want);
       });
     });
@@ -17,7 +17,7 @@ describe('Workteach Bachelor Teach Service', () => {
   describe('create', () => {
     it('should create Workteach Bachelor Teach', async () => {
       const want = {};
-      workteachBachelorTeachService.create(want).subscribe((result) => {
+      lectureLabsService.create(want).subscribe((result) => {
         expect(result).toEqual(want);
       });
     });

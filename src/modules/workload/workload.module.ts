@@ -1,21 +1,9 @@
-import { Module } from '@nestjs/common';
-import { WorkteachBachelorSeminarController } from './controllers/workteach-bachelor-seminar.controller';
-import { WorkteachBachelorCapstoneController } from './controllers/workteach-bachelor-capstone.controller';
-import { WorkteachBachelorInternController } from './controllers/workteach-bachelor-intern.controller';
-import { WorkteachBachelorTeachController } from './controllers/workteach-bachelor-teach.controller';
-import { WorkteachBachelorTeachService } from './services/workteach-bachelor-teach.service';
-import { WorkteachBachelorTeachsProviders } from './providers/workteach-bachelor-teachs.providers';
 
+import { Module } from '@nestjs/common';
+import { WorkteachModule } from './workteach/workteach.module';
 @Module({
-    controllers: [
-        WorkteachBachelorTeachController,
-        WorkteachBachelorInternController,
-        WorkteachBachelorCapstoneController,
-        WorkteachBachelorSeminarController,
+    modules: [
+        WorkteachModule,
     ],
-    components: [
-        WorkteachBachelorTeachService,
-        WorkteachBachelorTeachsProviders,
-      ],
 })
-export class WorkloadModule {}
+export class WorkloadModule { }
