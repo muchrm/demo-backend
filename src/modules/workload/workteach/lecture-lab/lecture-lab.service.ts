@@ -1,4 +1,3 @@
-import { LectureLab59Dto } from './dtos/lecture-lab-59.dto';
 import { Observable } from 'rxjs/Rx';
 import { Component, Inject } from '@nestjs/common';
 import { CreateLectureLabDto } from './dtos/create-lecture-lab.dto';
