@@ -10,7 +10,7 @@ export class LectureLabsService {
     constructor(
         @Inject(Cons.LectureLabModelToken) private readonly lectureLabModel: Model<ILectureLab>
     ) { }
-    findAll(year: number): Observable<ILectureLab[]> {
+    findAll(): Observable<ILectureLab[]> {
         return Observable.fromPromise(this.lectureLabModel.find())
     }
     create(createLectureLabDto: CreateLectureLabDto): Observable<ILectureLab> {
