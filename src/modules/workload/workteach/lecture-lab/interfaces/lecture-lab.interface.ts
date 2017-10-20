@@ -1,4 +1,4 @@
 import { Document } from 'mongoose';
-export interface ILectureLab extends Document{
-    courseCodes: Number[]
+export interface ILectureLab extends Document {
+  courseCodes: number[];
 }

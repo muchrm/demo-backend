@@ -1,2 +1,2 @@
-export class CreateLectureLabDto{
+export class CreateLectureLabDto {
 }

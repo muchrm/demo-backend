@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { WorkloadModule } from './workload/workload.module';
 @Module({
-    modules: [
-        WorkloadModule,
-    ],
+  modules: [
+    WorkloadModule,
+  ],
 })
-export class ApplicationModule {}
+export class ApplicationModule { }

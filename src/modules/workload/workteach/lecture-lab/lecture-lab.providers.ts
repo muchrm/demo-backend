@@ -1,6 +1,6 @@
 import { Connection } from 'mongoose';
-import { LectureLabsSchema } from './schemas/lecture-labs.schema';
 import { LectureLab as Cons } from './constants';
+import { LectureLabsSchema } from './schemas/lecture-labs.schema';
 export const LectureLabsProviders = [
   {
     provide: Cons.LectureLabModelToken,

@@ -1,28 +1,28 @@
 import { Test } from '@nestjs/testing';
-import { LectureLabsService } from './lecture-lab.service';
-import { Observable } from 'rxjs';
-import { LectureLabsProviders } from './lecture-lab.providers';
+import { Observable } from 'rxjs/Rx';
 import { DatabaseModule } from '../../common/database/database.module';
+import { LectureLabsProviders } from './lecture-lab.providers';
+import { LectureLabService } from './lecture-lab.service';
 
 describe('Workteach Bachelor Teach Service', () => {
-  let lectureLabsService: LectureLabsService;
+  let lectureLabService: LectureLabService;
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
       components: [
-        LectureLabsService,
+        LectureLabService,
         ...LectureLabsProviders,
       ],
       modules: [
         DatabaseModule,
       ],
     }).compile();
-    lectureLabsService = module.get<LectureLabsService>(LectureLabsService);
+    lectureLabService = module.get<LectureLabService>(LectureLabService);
   });
   describe('findAll', () => {
     it('should return an array of Workteach Bachelor Teach', async () => {
       const want = [];
-      lectureLabsService.findAll().subscribe((result) => {
+      lectureLabService.findAll().subscribe((result) => {
         expect(result).toEqual(want);
       });
     });
@@ -30,7 +30,7 @@ describe('Workteach Bachelor Teach Service', () => {
   describe('create', () => {
     it('should create Workteach Bachelor Teach', async () => {
       const want = {};
-      lectureLabsService.create(want).subscribe((result) => {
+      lectureLabService.create(want).subscribe((result) => {
         expect(result).toEqual(want);
       });
     });
