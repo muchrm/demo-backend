@@ -13,10 +13,12 @@ export class LectureLabService {
     private tranformer: LectureLabTransformer,
   ) { }
   findAll(): Observable<any[]> {
-    return Observable.fromPromise(this.lectureLabModel.find()).map((results) => this.tranformer.collection(results));
+    return Observable.fromPromise(this.lectureLabModel.find())
+      .map((results) => this.tranformer.collection(results));
   }
   create(createLectureLabDto: CreateLectureLabDto): Observable<ILectureLab> {
     const createdLectureLab = new this.lectureLabModel(createLectureLabDto);
-    return Observable.fromPromise(createdLectureLab.save());
+    return Observable.fromPromise(createdLectureLab.save())
+      .map((results) => this.tranformer.collection(results));
   }
 }
