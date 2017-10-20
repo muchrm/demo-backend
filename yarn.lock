@@ -52,15 +52,15 @@
     "@types/node" "*"
 
 "@types/mongoose@^4.7.23":
-  version "4.7.23"
-  resolved "https://registry.yarnpkg.com/@types/mongoose/-/mongoose-4.7.23.tgz#ce665da40a0e20384c2d892622dbfbdd5fc2bdde"
+  version "4.7.24"
+  resolved "https://registry.yarnpkg.com/@types/mongoose/-/mongoose-4.7.24.tgz#4aa853085bff9a72d03e7bea9ca100a4597846ea"
   dependencies:
     "@types/mongodb" "*"
     "@types/node" "*"
 
 "@types/node@*", "@types/node@^8.0.45":
-  version "8.0.45"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.45.tgz#89fad82439d5624e1b5c6b42f0f5d85136dcdecc"
+  version "8.0.46"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.46.tgz#6e1766b2d0ed06631d5b5f87bb8e72c8dbb6888e"
 
 abab@^1.0.3:
   version "1.0.4"
