@@ -1,4 +1,6 @@
+
 import { Module } from '@nestjs/common';
+import { TeachersModule } from '../../../manage/teachers/teachers.module';
 import { DatabaseModule } from '../../common/database/database.module';
 import { LectureLabController } from './lecture-lab.controller';
 import { LectureLabsProviders } from './lecture-lab.providers';
@@ -11,11 +13,12 @@ import { LectureLabTransformer } from './transformer/lecture-lab.transformer';
     ],
     components: [
         LectureLabService,
-        ...LectureLabsProviders,
         LectureLabTransformer,
+        ...LectureLabsProviders,
     ],
     modules: [
         DatabaseModule,
+        // TeachersModule,
     ],
 })
 export class LectureLabModule { }

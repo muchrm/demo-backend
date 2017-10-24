@@ -9,7 +9,6 @@ import { ILectureLab } from './interfaces/lecture-lab.interface';
 export class LectureLabService {
   constructor(
     @Inject(Cons.LectureLabModelToken) private readonly lectureLabModel: Model<ILectureLab>,
-
   ) { }
   findAll(): Observable<any[]> {
     return Observable.fromPromise(this.lectureLabModel.find().populate({ path: 'teachers._id' }));

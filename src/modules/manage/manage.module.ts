@@ -1,9 +1,8 @@
-
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from './common/database/database.module';
+import { TeachersModule } from './teachers/teachers.module';
 @Module({
   modules: [
-    DatabaseModule,
+    TeachersModule,
   ],
 })
 export class ManageModule { }
