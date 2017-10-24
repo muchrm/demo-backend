@@ -9,8 +9,5 @@ import { TeachersProviders } from './teachers.providers';
   components: [
     ...TeachersProviders,
   ],
-  exports: [
-    // ...TeachersProviders,
-  ],
 })
 export class TeachersModule { }
