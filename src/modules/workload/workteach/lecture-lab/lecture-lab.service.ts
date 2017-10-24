@@ -12,7 +12,7 @@ export class LectureLabService {
 
   ) { }
   findAll(): Observable<any[]> {
-    return Observable.fromPromise(this.lectureLabModel.find());
+    return Observable.fromPromise(this.lectureLabModel.find().populate({ path: 'teachers._id' }));
 
   }
   create(createLectureLabDto: CreateLectureLabDto): Observable<ILectureLab> {

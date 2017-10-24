@@ -1,5 +1,5 @@
 export const Database = {
-  CONNECTION_TOKEN: 'DbConnectionToken',
+  CONNECTION_TOKEN: 'WorkloadDbConnectionToken',
   HOST: 'ds155747.mlab.com',
   PORT: '55747',
   NAME: 'mis',
