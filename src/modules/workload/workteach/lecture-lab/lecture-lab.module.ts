@@ -3,7 +3,7 @@ import { DatabaseModule } from '../../common/database/database.module';
 import { LectureLabController } from './lecture-lab.controller';
 import { LectureLabsProviders } from './lecture-lab.providers';
 import { LectureLabService } from './lecture-lab.service';
-import { LectureLabTransformer } from './lecture-lab.transformer';
+import { LectureLabTransformer } from './transformer/lecture-lab.transformer';
 
 @Module({
     controllers: [
