@@ -5,4 +5,4 @@ import { TeachersModule } from './teachers/teachers.module';
     TeachersModule,
   ],
 })
-export class ManageModule { }
+export class ApplicationModule { }

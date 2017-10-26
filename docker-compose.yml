@@ -18,6 +18,19 @@ services:
       - db
     environment:
       VIRTUAL_HOST: workload.local
+
+  personnel:
+    build: ./personnel
+    image: mis/personnel
+    container_name: mis-personnel
+    depends_on:
+      - db
+      - proxy
+    links:
+      - db
+    environment:
+      VIRTUAL_HOST: personnel.local
+
   db:
     image: mongo:3.4
     container_name: mis-db

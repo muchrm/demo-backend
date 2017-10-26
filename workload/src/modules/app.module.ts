@@ -1,10 +1,8 @@
 import { Module } from '@nestjs/common';
-import { ManageModule } from './manage/manage.module';
-import { WorkloadModule } from './workload/workload.module';
+import { WorkteachModule } from './workteach/workteach.module';
 @Module({
   modules: [
-    WorkloadModule,
-    ManageModule,
+    WorkteachModule,
   ],
 })
 export class ApplicationModule { }
