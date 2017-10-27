@@ -1,4 +1,4 @@
-version: '2'
+version: '3.3'
 services:
   proxy:
     image: jwilder/nginx-proxy
@@ -7,6 +7,7 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     ports:
       - "80:80"
+
   workload:
     build: ./workload
     image: mis/workload
@@ -14,8 +15,7 @@ services:
     depends_on:
       - db
       - proxy
-    links:
-      - db
+      - rabbitmq
     environment:
       VIRTUAL_HOST: workload.local
 
@@ -26,8 +26,7 @@ services:
     depends_on:
       - db
       - proxy
-    links:
-      - db
+      - rabbitmq
     environment:
       VIRTUAL_HOST: personnel.local
 
@@ -38,3 +37,6 @@ services:
       - "27017:27017"
     volumes:
       - ./backup:/backup:rw
+  rabbitmq:
+    image: rabbitmq:management-alpine
+    container_name: rabbitmq
