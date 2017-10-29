@@ -1,3 +1,4 @@
 export class CreateProjectAndSpecialProblemDto {
-  courseCodes: number[];
+  credit: number;
+  teachers: any[];
 }
