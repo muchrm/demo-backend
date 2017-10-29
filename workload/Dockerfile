@@ -7,7 +7,7 @@ WORKDIR /work
 RUN yarn
 
 # Run the users microservice when the container starts.
-ENTRYPOINT yarn start:watch
+ENTRYPOINT yarn start
 
 # Service listens on port 3000.
 EXPOSE 3000

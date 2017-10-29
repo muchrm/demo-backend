@@ -1,9 +1,9 @@
 import { Component, Inject } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { Observable } from 'rxjs/Rx';
-import { LectureLab as Cons } from './constants';
-import { CreateLectureLabDto } from './dtos/create-lecture-lab.dto';
-import { ILectureLab } from './interfaces/lecture-lab.interface';
+import { Constants as Cons } from '../constants';
+import { CreateLectureLabDto } from '../dtos/create-lecture-lab.dto';
+import { ILectureLab } from '../interfaces/lecture-lab.interface';
 
 @Component()
 export class LectureLabService {

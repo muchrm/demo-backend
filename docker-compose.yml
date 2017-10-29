@@ -13,7 +13,7 @@ services:
     image: mis/workload
     container_name: mis-workload
     depends_on:
-      - db
+      # - db
       - proxy
       - rabbitmq
     environment:
@@ -24,19 +24,19 @@ services:
     image: mis/personnel
     container_name: mis-personnel
     depends_on:
-      - db
+      # - db
       - proxy
       - rabbitmq
     environment:
       VIRTUAL_HOST: personnel.local
 
-  db:
-    image: mongo:3.4
-    container_name: mis-db
-    ports:
-      - "27017:27017"
-    volumes:
-      - ./backup:/backup:rw
+  # db:
+  #   image: mongo:3.4
+  #   container_name: mis-db
+  #   ports:
+  #     - "27017:27017"
+  #   volumes:
+  #     - ./backup:/backup:rw
   rabbitmq:
     image: rabbitmq:management-alpine
     container_name: rabbitmq
