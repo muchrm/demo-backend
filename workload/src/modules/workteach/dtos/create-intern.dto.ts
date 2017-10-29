@@ -1,3 +1,6 @@
 export class CreateInternDto {
-  courseCodes: number[];
+  countStudent: number;
+  courseType: string;
+  type: string;
+  teachers: any[];
 }
