@@ -94,6 +94,8 @@ services:
   kong-dashboard:
     image: pgbi/kong-dashboard:v2
     command: -a user=password
+    depends_on:
+      - kong
     ports:
       - 9001:8080
 
