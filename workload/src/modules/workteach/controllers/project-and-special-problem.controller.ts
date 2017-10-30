@@ -13,7 +13,7 @@ export class ProjectAndSpecialProblemController {
   constructor(
     private readonly projectAndSpecialProblemService: ProjectAndSpecialProblemService,
     private tranformer: ProjectAndSpecialProblemTransformer,
-    // @Inject(RabbitMQConstants.CONNECTION_TOKEN) private readonly client: ClientProxy,
+    @Inject(RabbitMQConstants.CONNECTION_TOKEN) private readonly client: ClientProxy,
   ) {
   }
 
@@ -22,9 +22,4 @@ export class ProjectAndSpecialProblemController {
     return this.projectAndSpecialProblemService.findAll()
       .map((results) => this.tranformer.collection(results));
   }
-  // @Get('test')
-  // findAll2(): Observable<number> {
-  //   const pattern = { teacher: 'getUser' };
-  //   return this.client.send<number>(pattern, 1);
-  // }
 }

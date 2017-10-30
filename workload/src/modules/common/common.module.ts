@@ -3,13 +3,13 @@ import { DatabaseModule } from './database/database.module';
 import { RabbitMQModule } from './rabbitmq/rabbitmq.module';
 
 @Module({
-  modules:[
+  modules: [
     DatabaseModule,
-    RabbitMQModule
+    RabbitMQModule,
   ],
   exports: [
     DatabaseModule,
-    RabbitMQModule
+    RabbitMQModule,
   ],
 })
 export class CommonModule { }

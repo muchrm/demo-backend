@@ -5,4 +5,8 @@ export const Constants = {
   WorkteachIntern: 'WorkteachIntern',
   ProjectAndSpecialProblemModelToken: 'ProjectAndSpecialProblemModelToken',
   WorkteachProjectAndSpecialProblem: 'WorkteachProjectAndSpecialProblem',
+  SeminarModelToken: 'SeminarModelToken',
+  WorkteachSeminar: 'WorkteachSeminar',
+  ThesisModelToken: 'ThesisModelToken',
+  WorkteachThesis: 'WorkteachThesis',
 };

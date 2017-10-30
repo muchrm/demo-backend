@@ -1,4 +1,5 @@
 import { Component } from '@nestjs/common';
+import { CreateSeminarDto } from '../dtos/create-seminar.dto';
 
 const ADVISOR = 'advisor';
 const JUDE = 'jude';
@@ -12,10 +13,10 @@ const MAX_JUDE = 4;
 
 @Component()
 export class SeminarCalculate {
-  private createSeminarDto: any;
+  private createSeminarDto: CreateSeminarDto;
   private pointJude: number;
   constructor() { }
-  calculate(createSeminarDto: any) {
+  calculate(createSeminarDto: CreateSeminarDto) {
     this.createSeminarDto = createSeminarDto;
     this.calculatePointJude();
     this.assignToTeachers();

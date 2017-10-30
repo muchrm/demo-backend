@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-export const InternSchema = new mongoose.Schema({
+export const SeminarSchema = new mongoose.Schema({
   countStudent: Number,
   courseType: String,
   type: String,

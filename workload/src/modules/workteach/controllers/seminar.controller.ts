@@ -3,22 +3,22 @@ import { Client, ClientProxy, Transport } from '@nestjs/microservices';
 import { Observable } from 'rxjs/Rx';
 import { Constants as RabbitMQConstants} from '../../common/rabbitmq/constants';
 import { RabbitMQClient } from '../../common/rabbitmq/rabbitmq.client';
-import { CreateInternDto } from '../dtos/create-intern.dto';
-import { InternService } from '../services/intern.service';
-import { InternTransformer } from '../transformers/intern.transformer';
+import { CreateSeminarDto } from '../dtos/create-seminar.dto';
+import { SeminarService } from '../services/seminar.service';
+import { SeminarTransformer } from '../transformers/seminar.transformer';
 
-@Controller('workteach/intern')
-export class InternController {
+@Controller('workteach/seminar')
+export class SeminarController {
 
   constructor(
-    private readonly internService: InternService,
-    private tranformer: InternTransformer,
+    private readonly internService: SeminarService,
+    private tranformer: SeminarTransformer,
     @Inject(RabbitMQConstants.CONNECTION_TOKEN) private readonly client: ClientProxy,
   ) {
   }
 
   @Get()
-  findAll(): Observable<CreateInternDto[]> {
+  findAll(): Observable<CreateSeminarDto[]> {
     return this.internService.findAll()
       .map((results) => this.tranformer.collection(results));
   }
