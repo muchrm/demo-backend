@@ -1,8 +1,8 @@
-import { CreateInternDto } from '../dtos/create-intern.dto';
 import { Component } from '@nestjs/common';
+import { CreateInternDto } from '../dtos/create-intern.dto';
 const POINT_SUPERVISOR_INTERNSHIP = 0.5;
 const POINT_SUPERVISOR_COOPERATIVE = 1;
-const POINT_INSTRUCTOR = 2
+const POINT_INSTRUCTOR = 2;
 @Component()
 export class InternCalculate {
   private createInternDto: CreateInternDto;

@@ -11,7 +11,7 @@ import { ProjectAndSpecialProblemTransformer } from '../transformers/project-and
 export class ProjectAndSpecialProblemController {
 
   constructor(
-    private readonly ProjectAndSpecialProblemService: ProjectAndSpecialProblemService,
+    private readonly projectAndSpecialProblemService: ProjectAndSpecialProblemService,
     private tranformer: ProjectAndSpecialProblemTransformer,
     // @Inject(RabbitMQConstants.CONNECTION_TOKEN) private readonly client: ClientProxy,
   ) {
@@ -19,7 +19,7 @@ export class ProjectAndSpecialProblemController {
 
   @Get()
   findAll(): Observable<CreateProjectAndSpecialProblemDto[]> {
-    return this.ProjectAndSpecialProblemService.findAll()
+    return this.projectAndSpecialProblemService.findAll()
       .map((results) => this.tranformer.collection(results));
   }
   // @Get('test')

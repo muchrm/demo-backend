@@ -11,7 +11,7 @@ import { InternTransformer } from '../transformers/intern.transformer';
 export class InternController {
 
   constructor(
-    private readonly InternService: InternService,
+    private readonly internService: InternService,
     private tranformer: InternTransformer,
     @Inject(RabbitMQConstants.CONNECTION_TOKEN) private readonly client: ClientProxy,
   ) {
@@ -19,7 +19,7 @@ export class InternController {
 
   @Get()
   findAll(): Observable<CreateInternDto[]> {
-    return this.InternService.findAll()
+    return this.internService.findAll()
       .map((results) => this.tranformer.collection(results));
   }
   // @Get('test')

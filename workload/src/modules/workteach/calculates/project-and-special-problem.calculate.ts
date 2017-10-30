@@ -1,9 +1,11 @@
 import { Component } from '@nestjs/common';
 import { CreateInternDto } from '../dtos/create-intern.dto';
 import { CreateProjectAndSpecialProblemDto } from '../dtos/create-project-and-special-problem.dto';
-const CO_ADVISOR = 'coAdvisor';
+
 const CHAIRMAN = 'chairman';
 const ADVISOR = 'advisor';
+const CO_ADVISOR = 'coAdvisor';
+
 @Component()
 export class ProjectAndSpecialProblemCalculate {
 
@@ -18,14 +20,14 @@ export class ProjectAndSpecialProblemCalculate {
     this.pointChairman = this.createProjectAndSpecialProblemDto.credit;
     this.pointAdvisor = this.createProjectAndSpecialProblemDto.credit;
     this.pointCoAdvisor = this.createProjectAndSpecialProblemDto.credit / 2;
-
-    this.AssignToTeachers()
+    this.calculateCoAdvisor();
+    this.AssignToTeachers();
     return this.createProjectAndSpecialProblemDto;
   }
   calculateCoAdvisor() {
     const countCoAdvisor = this.createProjectAndSpecialProblemDto
-      .teachers.filter((teacher) => teacher.appointment == CO_ADVISOR).length
-    this.pointPerCoAdvisor = (this.pointCoAdvisor) / countCoAdvisor
+      .teachers.filter((teacher) => teacher.appointment === CO_ADVISOR).length;
+    this.pointPerCoAdvisor = this.pointCoAdvisor / countCoAdvisor;
   }
   AssignToTeachers(): any {
     this.createProjectAndSpecialProblemDto.teachers.forEach((teacher) => {
@@ -37,12 +39,12 @@ export class ProjectAndSpecialProblemCalculate {
           teacher.point = this.pointAdvisor;
           break;
         case CO_ADVISOR:
-          teacher.point = this.pointCoAdvisor;
+          teacher.point = this.pointPerCoAdvisor;
           break;
         default:
           teacher.point = 0;
           break;
       }
-    })
+    });
   }
 }
