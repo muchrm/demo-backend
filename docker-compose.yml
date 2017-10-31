@@ -20,28 +20,28 @@ services:
     dns:
       - 127.0.0.1
 
-  nginx-lb:
-    build: nginx/
-    container_name: nginx-lb
-    depends_on:
-      consul:
-        condition: service_healthy
-    ports:
-      - 8000:8000
-      - 8443:8443
-      - 8001:8001
-      - 8444:8444
-    expose:
-      - 8000
-      - 8443
-      - 8001
-      - 8444
-    links:
-      - consul:consul
-    command: >
-        /bin/containerpilot
-        -config file:///etc/containerpilot/containerpilot.json
-        nginx -g "daemon off;"
+  # nginx-lb:
+  #   build: nginx/
+  #   container_name: nginx-lb
+  #   depends_on:
+  #     consul:
+  #       condition: service_healthy
+  #   ports:
+  #     - 8000:8000
+  #     - 8443:8443
+  #     - 8001:8001
+  #     - 8444:8444
+  #   expose:
+  #     - 8000
+  #     - 8443
+  #     - 8001
+  #     - 8444
+  #   links:
+  #     - consul:consul
+  #   command: >
+  #       /bin/containerpilot
+  #       -config file:///etc/containerpilot/containerpilot.json
+  #       nginx -g "daemon off;"
 
   kong-database:
     image: postgres:10
@@ -50,22 +50,13 @@ services:
       - POSTGRES_USER=kong
       - POSTGRES_DB=kong
     volumes: 
-      - ./backup/postgres:/backup:rw
+      - ./backup/pg:/backup:rw
+      - ./data/pg:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "postgres"]
       interval: 10s
       timeout: 5s
       retries: 5
-
-  kong-migration:
-    image: kong
-    depends_on:
-      kong-database:
-        condition: service_healthy
-    environment:
-      - KONG_DATABASE=postgres
-      - KONG_PG_HOST=kong-database
-    command: kong migrations up
 
   kong:
     build: kong/
@@ -73,14 +64,17 @@ services:
     depends_on:
       kong-database:
         condition: service_healthy
-      kong-migration:
-        condition: service_started
     environment:
       - KONG_DATABASE=postgres
       - KONG_PG_HOST=kong-database
       - KONG_PG_DATABASE=kong
     links:
       - workload
+    ports:
+      - 8000:8000
+      - 8443:8443
+      - 8001:8001
+      - 8444:8444
     expose:
       - 8000
       - 8001
@@ -93,9 +87,7 @@ services:
 
   kong-dashboard:
     image: pgbi/kong-dashboard:v2
-    command: -a user=password
-    depends_on:
-      - kong
+    command: -a mis=mis2017
     ports:
       - 9001:8080
 
