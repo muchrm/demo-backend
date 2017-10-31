@@ -69,13 +69,13 @@ services:
       - 9001:8080
 
   authen:
-    build: ./authen
+    build:
+        context: ./authen
+        dockerfile: "Dockerfile.prod"
     image: mis/authen
     container_name: mis-authen
     depends_on:
       - db
-    volumes:
-      - ./authen:/work:rw
 
   workload:
     build: ./workload
@@ -84,8 +84,6 @@ services:
     depends_on:
       - db
       - rabbitmq
-    volumes:
-      - ./workload:/work:rw
 
   personnel:
     build: ./personnel
@@ -94,9 +92,6 @@ services:
     depends_on:
       - db
       - rabbitmq
-    volumes:
-      - ./personnel:/work:rw
-
   db:
     image: mongo:3.4
     container_name: mis-db
