@@ -10,7 +10,12 @@ export class AuthService {
     const secretOrKey = 'secret';
     const user = { email: 'thisis@example.com' };
     const token = jwt.sign(user, secretOrKey, { expiresIn });
+    let url = {};
+    await this.kong.get('/apis').then((data) => {
+      url = data;
+    });
     return {
+      url,
       expires_in: expiresIn,
       access_token: token,
     };
