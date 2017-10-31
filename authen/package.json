@@ -29,6 +29,7 @@
     "passport-jwt": "^3.0.1",
     "redis": "^2.8.0",
     "reflect-metadata": "^0.1.10",
+    "request-promise": "^4.2.2",
     "rxjs": "^5.5.0"
   },
   "devDependencies": {
@@ -36,6 +37,7 @@
     "@types/mongoose": "^4.7.23",
     "@types/node": "^8.0.45",
     "@types/passport-jwt": "^3.0.0",
+    "@types/request-promise": "^4.1.39",
     "jest": "^21.2.1",
     "nodemon": "^1.12.1",
     "ts-jest": "^21.1.3",

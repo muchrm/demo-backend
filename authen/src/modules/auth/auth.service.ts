@@ -1,10 +1,13 @@
-import * as jwt from 'jsonwebtoken';
 import { Component, Inject } from '@nestjs/common';
+import * as jwt from 'jsonwebtoken';
+import { Kong } from '../common/kong';
 
 @Component()
 export class AuthService {
+  kong = new Kong('http://kong:8001');
   async createToken() {
-    const expiresIn = 60 * 60, secretOrKey = 'secret';
+    const expiresIn = 60 * 60;
+    const secretOrKey = 'secret';
     const user = { email: 'thisis@example.com' };
     const token = jwt.sign(user, secretOrKey, { expiresIn });
     return {
