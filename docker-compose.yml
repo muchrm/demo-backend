@@ -68,6 +68,13 @@ services:
     ports:
       - 9001:8080
 
+  authen:
+    build: ./authen
+    image: mis/authen
+    container_name: mis-authen
+    depends_on:
+      - db
+
   workload:
     build: ./workload
     image: mis/workload
