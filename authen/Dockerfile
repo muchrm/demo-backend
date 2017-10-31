@@ -3,6 +3,7 @@ FROM node:slim
 # Install dependencies
 RUN npm install -g yarn
 
+WORKDIR /work
 # Run the users microservice when the container starts.
 ENTRYPOINT yarn start:watch
 
