@@ -18,10 +18,19 @@ export class AuthService {
     };
   }
 
-  async validateUser(signedUser): Promise<boolean> {
-    // put some validation logic here
-    // for example query user by id / email / username
-    return true;
+  async login(credential:any): Promise<any> {
+    const expiresIn = 60 * 60;
+    const secretOrKey = 'secret';
+    const user = { email: 'thisis@example.com',username:credential.username };
+    const issuer = "http://mis.sci.buu.ac.th";
+
+    const token = jwt.sign(user, secretOrKey, {issuer, expiresIn });
+    await this.generateConsumer(user.email,issuer,secretOrKey)
+
+    return {
+      expires_in: expiresIn,
+      access_token: token,
+    };
   }
   async generateConsumer(username:string,key:string,secret:string){
     const result = await this.kong.get('/consumers/'+username)
