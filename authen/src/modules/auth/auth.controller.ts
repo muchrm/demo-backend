@@ -1,15 +1,12 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
-export class Credential {
-  username: string;
-  password: string;
-}
+import { Credential } from './Credential.dto';
 
 @Controller()
 export class AuthController {
   constructor(private readonly authService: AuthService) { }
 
-  @Post('token')
+  @Get('token')
   public async getToken() {
     return await this.authService.createToken();
   }

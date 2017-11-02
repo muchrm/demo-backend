@@ -1,6 +1,7 @@
 import { Component, Inject } from '@nestjs/common';
 import * as jwt from 'jsonwebtoken';
 import { Kong } from '../common/kong';
+import { Credential } from './Credential.dto';
 
 @Component()
 export class AuthService {
@@ -18,7 +19,7 @@ export class AuthService {
     };
   }
 
-  async login(credential: any): Promise<any> {
+  async login(credential: Credential): Promise<any> {
     const expiresIn = 60 * 60;
     const secretOrKey = 'secret';
     const user = { email: 'thisis@example.com', username: credential.username };
