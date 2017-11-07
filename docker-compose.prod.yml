@@ -69,9 +69,7 @@ services:
       - 9001:8080
 
   authen:
-    build:
-        context: ./authen
-        dockerfile: "Dockerfile.prod"
+    build: ./authen
     image: mis/authen
     container_name: mis-authen
     depends_on:
