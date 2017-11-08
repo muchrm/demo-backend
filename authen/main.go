@@ -5,7 +5,9 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"time"
 
+	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"github.com/muchrm/mis-backend/authen/kong"
@@ -16,25 +18,26 @@ type User struct {
 	Password string `json:"password"`
 }
 
-/*
-generateConsumer(username: string, key: string, secret: string) {
-    const result = await this.kong.get('/consumers/' + username);
-    if (result.message === 'Not found') {
-      await this.kong.post('/consumers/' + username, { username });
-    }
-    const jwts = await this.kong.get('/consumers/' + username + '/jwt');
-    await jwts.data.forEach(async (token) => {
-      await this.kong.delete('/consumers/' + username + '/jwt/' + token.id);
-    });
-    return await this.kong.post('/consumers/' + username + '/jwt', { key, secret });
-  }
-*/
-func generateConsumer(username string, key string, secret string) {
-	kong := kong.Kong{BaseUrl: "localhost: 3000"}
-	consumer, err := kong.Get("/consumers/" + username)
-	fmt.Println(consumer, err)
+func generateToken(username string, key string, secret string) (string, error) {
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+		"name": username,
+		"iss":  key,
+		"exp":  time.Now().Add(time.Hour * 24).Unix(),
+	})
+	return token.SignedString([]byte(secret))
 }
-func HelloServer(w http.ResponseWriter, req *http.Request) {
+func generateConsumer(username string, key string, secret string) {
+	kong, _ := kong.New("http://localhost:8001")
+	_, err := kong.Customer.Get(username)
+	if err != nil {
+		_, err = kong.Customer.Add(username)
+	}
+	jwts, err := kong.Jwt.Get(username)
+	if jwts.Total == 0 {
+		kong.Jwt.Add(username, key, secret)
+	}
+}
+func LoginHandler(w http.ResponseWriter, req *http.Request) {
 	var user User
 	if req.Body == nil {
 		http.Error(w, "Please send a request body", 400)
@@ -45,15 +48,22 @@ func HelloServer(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, err.Error(), 400)
 		return
 	}
-	generateConsumer(user.Username, "mis.sci.buu.ac.th", "12343223453543")
-	w.Write([]byte("hello"))
+
+	go generateConsumer(user.Username, "mis.sci.buu.ac.th", "secret")
+	token, _ := generateToken(user.Username, "http://mis.sci.buu.ac.th", "secret")
+	if err != nil {
+		http.Error(w, err.Error(), 400)
+		return
+	}
+
+	fmt.Fprint(w, "token="+token)
 }
 func HelthCheck(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprint(w, "Service Healthly")
 }
 func main() {
 	router := mux.NewRouter()
-	router.HandleFunc("/login", HelloServer).Methods("POST")
+	router.HandleFunc("/login", LoginHandler).Methods("POST")
 	router.HandleFunc("/health", HelthCheck)
 	http.Handle("/", router)
 	http.ListenAndServe(":3000", handlers.LoggingHandler(os.Stdout, router))
