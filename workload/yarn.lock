@@ -2,36 +2,36 @@
 # yarn lockfile v1
 
 
-"@nestjs/common@^4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-4.2.1.tgz#038bae9e6cdd77630062cb5255cd2e97d04ee251"
+"@nestjs/common@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-4.2.2.tgz#2cafa9d0c0ad5baaa3ee3367a5ad098267ede57e"
   dependencies:
     cli-color "1.1.0"
 
-"@nestjs/core@^4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-4.2.1.tgz#7fef9608e2d092ebf4b1687736f231c284c345c2"
+"@nestjs/core@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-4.2.2.tgz#3f56919c1aae80a54f899afcdc484f5f480ed815"
   dependencies:
     express "4.16.2"
     iterare "0.0.8"
     optional "0.1.4"
 
-"@nestjs/microservices@^4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@nestjs/microservices/-/microservices-4.2.1.tgz#d46d3357371e226dfc6cf881bb891fa9834a303e"
+"@nestjs/microservices@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/microservices/-/microservices-4.2.2.tgz#97e35cbe3483559c2af747807f14c1ef357d7d34"
   dependencies:
     iterare "0.0.8"
     json-socket "^0.2.1"
     optional "0.1.4"
     redis "^2.7.1"
 
-"@nestjs/testing@^4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-4.2.1.tgz#94283e147dbc6e5620ca896e2b06b5e2b1a1d089"
+"@nestjs/testing@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-4.2.2.tgz#c0614131c4ee26bce758d078a38a5f4a42aac455"
 
-"@nestjs/websockets@^4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@nestjs/websockets/-/websockets-4.2.1.tgz#292e614d24ce51f20b75a11dcbe5fd2135d4e1d9"
+"@nestjs/websockets@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/websockets/-/websockets-4.2.2.tgz#3ef4ccbb41411d9f2c40cbee41165608fecfe1f7"
   dependencies:
     iterare "0.0.8"
     socket.io "^2.0.3"
@@ -42,9 +42,9 @@
   dependencies:
     "@types/node" "*"
 
-"@types/jest@^21.1.5":
-  version "21.1.5"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-21.1.5.tgz#3db93d069d12602ca115d3604550e15131d8eb7a"
+"@types/jest@^21.1.6":
+  version "21.1.6"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-21.1.6.tgz#9467945ce33261e4fdd14276576951aa130515aa"
 
 "@types/mongodb@*":
   version "2.2.14"
@@ -53,9 +53,9 @@
     "@types/bson" "*"
     "@types/node" "*"
 
-"@types/mongoose@^4.7.25":
-  version "4.7.25"
-  resolved "https://registry.yarnpkg.com/@types/mongoose/-/mongoose-4.7.25.tgz#d31b34c1ade8e1649f41710094275204ba07388d"
+"@types/mongoose@^4.7.26":
+  version "4.7.27"
+  resolved "https://registry.yarnpkg.com/@types/mongoose/-/mongoose-4.7.27.tgz#dba184904d7e6a008f9410073ac02e809ef70a61"
   dependencies:
     "@types/mongodb" "*"
     "@types/node" "*"
@@ -64,9 +64,9 @@
   version "8.0.46"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.46.tgz#6e1766b2d0ed06631d5b5f87bb8e72c8dbb6888e"
 
-"@types/node@^8.0.47":
-  version "8.0.47"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.47.tgz#968e596f91acd59069054558a00708c445ca30c2"
+"@types/node@^8.0.51":
+  version "8.0.51"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.51.tgz#b31d716fb8d58eeb95c068a039b9b6292817d5fb"
 
 abab@^1.0.3:
   version "1.0.4"
@@ -132,14 +132,15 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-amqplib@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/amqplib/-/amqplib-0.5.1.tgz#7cccfebabe56c2e984ea7a2243f7cefe6fbfc6cf"
+amqplib@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/amqplib/-/amqplib-0.5.2.tgz#d2d7313c7ffaa4d10bcf1e6252de4591b6cc7b63"
   dependencies:
     bitsyntax "~0.0.4"
     bluebird "^3.4.6"
     buffer-more-ints "0.0.2"
     readable-stream "1.x >=1.1.9"
+    safe-buffer "^5.0.1"
 
 ansi-align@^2.0.0:
   version "2.0.0"
@@ -2410,9 +2411,9 @@ mongodb@2.2.33:
     mongodb-core "2.1.17"
     readable-stream "2.2.7"
 
-mongoose@^4.13.0:
-  version "4.13.0"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.13.0.tgz#81bb266e045d66ac8dfdd84fc6749c873d7a6ac4"
+mongoose@^4.13.2:
+  version "4.13.2"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.13.2.tgz#9639241ce9cd1dfedcd164aef941c09c9eb12b1a"
   dependencies:
     async "2.1.4"
     bson "~1.0.4"
@@ -3527,9 +3528,9 @@ trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
 
-ts-jest@^21.1.4:
-  version "21.1.4"
-  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-21.1.4.tgz#6b720cd4ebfacbc935468e60dd395392f817095b"
+ts-jest@^21.2.2:
+  version "21.2.2"
+  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-21.2.2.tgz#60bd8a6bc599cf746bfa054600ba5694d3f39ebc"
   dependencies:
     babel-core "^6.24.1"
     babel-plugin-istanbul "^4.1.4"
