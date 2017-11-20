@@ -1,7 +1,7 @@
-import { Controller, Get, Inject } from '@nestjs/common';
+import { Controller, Get, Inject, Post } from '@nestjs/common';
 import { Client, ClientProxy, Transport } from '@nestjs/microservices';
 import { Observable } from 'rxjs/Rx';
-import { Constants as RabbitMQConstants} from '../../common/rabbitmq/constants';
+import { Constants as RabbitMQConstants } from '../../common/rabbitmq/constants';
 import { RabbitMQClient } from '../../common/rabbitmq/rabbitmq.client';
 import { CreateInternDto } from '../dtos/create-intern.dto';
 import { InternService } from '../services/intern.service';
@@ -21,5 +21,10 @@ export class InternController {
   findAll(): Observable<CreateInternDto[]> {
     return this.internService.findAll()
       .map((results) => this.tranformer.collection(results));
+  }
+
+  @Post()
+  add() {
+    return {};
   }
 }
