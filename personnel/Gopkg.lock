@@ -22,12 +22,12 @@
 [[projects]]
   branch = "v2"
   name = "gopkg.in/mgo.v2"
-  packages = ["bson","internal/json"]
+  packages = [".","bson","internal/json","internal/sasl","internal/scram"]
   revision = "3f83fa5005286a7fe593b055f0d7771a7dce4655"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b60e419d56b51049d5b3d48ed9a76b9d8f9f6461d00f5adb61414792ff18f6c0"
+  inputs-digest = "d867954f2871a1634ec9b70600aff15cb3e3a0c5bb3ada625bb0b925a1358aec"
   solver-name = "gps-cdcl"
   solver-version = 1
