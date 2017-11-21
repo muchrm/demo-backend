@@ -9,15 +9,15 @@ import { IThesis } from '../interfaces/thesis.interface';
 @Component()
 export class ThesisService {
   constructor(
-    @Inject(Cons.InternModelToken) private readonly InternModel: Model<IThesis>,
-    private readonly seminarCalculate: ThesisCalculate,
+    @Inject(Cons.InternModelToken) private readonly thesisModel: Model<IThesis>,
+    private readonly thesisCalculate: ThesisCalculate,
   ) { }
   findAll(): Observable<any[]> {
-    return Observable.fromPromise(this.InternModel.find().populate({ path: 'teachers._id' }));
+    return Observable.fromPromise(this.thesisModel.find().populate({ path: 'teachers._id' }));
   }
   create(createThesisDto: CreateThesisDto): Observable<IThesis> {
-    const calculatedThesisDto = this.seminarCalculate.calculate(createThesisDto);
-    const createdThesis = new this.InternModel(calculatedThesisDto);
+    const calculatedThesisDto = this.thesisCalculate.calculate(createThesisDto);
+    const createdThesis = new this.thesisModel(calculatedThesisDto);
     return Observable.fromPromise(createdThesis.save());
   }
 }

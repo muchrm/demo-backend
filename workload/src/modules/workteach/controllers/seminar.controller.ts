@@ -1,7 +1,7 @@
-import { Body,Controller, Get, Inject, Post, Res, HttpStatus } from '@nestjs/common';
+import { Body, Controller, Get, Inject, Post, Res, HttpStatus } from '@nestjs/common';
 import { Client, ClientProxy, Transport } from '@nestjs/microservices';
 import { Observable } from 'rxjs/Rx';
-import { Constants as RabbitMQConstants} from '../../common/rabbitmq/constants';
+import { Constants as RabbitMQConstants } from '../../common/rabbitmq/constants';
 import { RabbitMQClient } from '../../common/rabbitmq/rabbitmq.client';
 import { CreateSeminarDto } from '../dtos/create-seminar.dto';
 import { SeminarService } from '../services/seminar.service';
@@ -24,6 +24,6 @@ export class SeminarController {
   }
   @Post()
   create( @Res() res, @Body() createCatDto: CreateSeminarDto) {
-    return res.status(HttpStatus.CREATED).send(this.seminarService.create(createCatDto));
+    return true; //res.status(HttpStatus.CREATED).send(this.seminarService.create(createCatDto));
   }
 }
