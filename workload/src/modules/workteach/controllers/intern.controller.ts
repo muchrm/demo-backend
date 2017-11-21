@@ -1,4 +1,4 @@
-import { Controller, Get, Inject, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Inject, Post, Res } from '@nestjs/common';
 import { Client, ClientProxy, Transport } from '@nestjs/microservices';
 import { Observable } from 'rxjs/Rx';
 import { Constants as RabbitMQConstants } from '../../common/rabbitmq/constants';
@@ -24,7 +24,8 @@ export class InternController {
   }
 
   @Post()
-  add() {
-    return {};
+  create( @Res() res, @Body() createCatDto: CreateInternDto) {
+    // TODO: Add some logic here
+    res.status(HttpStatus.CREATED).send(createCatDto);
   }
 }

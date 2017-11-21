@@ -1,4 +1,4 @@
-import { Controller, Get, Inject } from '@nestjs/common';
+import { Body,Controller, Get, Inject, Post, HttpStatus, Res } from '@nestjs/common';
 import { Client, ClientProxy, Transport } from '@nestjs/microservices';
 import { Observable } from 'rxjs/Rx';
 import { Constants as RabbitMQConstants} from '../../common/rabbitmq/constants';
@@ -21,5 +21,10 @@ export class ThesisController {
   findAll(): Observable<CreateThesisDto[]> {
     return this.thesisService.findAll()
       .map((results) => this.tranformer.collection(results));
+  }
+  @Post()
+  create( @Res() res, @Body() createCatDto: CreateThesisDto) {
+    // TODO: Add some logic here
+    res.status(HttpStatus.CREATED).send(createCatDto);
   }
 }

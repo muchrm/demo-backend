@@ -15,7 +15,7 @@ export class ThesisService {
   findAll(): Observable<any[]> {
     return Observable.fromPromise(this.InternModel.find().populate({ path: 'teachers._id' }));
   }
-  create(createThesisDto: CreateThesisDto): Observable<ISeminar> {
+  create(createThesisDto: CreateThesisDto): Observable<IThesis> {
     const calculatedThesisDto = this.seminarCalculate.calculate(createThesisDto);
     const createdThesis = new this.InternModel(calculatedThesisDto);
     return Observable.fromPromise(createdThesis.save());

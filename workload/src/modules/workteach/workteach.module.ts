@@ -20,29 +20,39 @@ import { InternTransformer } from './transformers/intern.transformer';
 import { LectureLabTransformer } from './transformers/lecture-lab.transformer';
 import { ProjectAndSpecialProblemTransformer } from './transformers/project-and-special-problem.transformer';
 import { SeminarTransformer } from './transformers/seminar.transformer';
+import { ThesisController } from './controllers/thesis.controller';
+import { ThesisCalculate } from './calculates/thesis.calculate';
+import { ThesisService } from './services/thesis.service';
+import { ThesisTransformer } from './transformers/thesis.transformer';
+import { ThesisProviders } from './providers/thesis.providers';
 @Module({
   controllers: [
     InternController,
     LectureLabController,
     ProjectAndSpecialProblemController,
     SeminarController,
+    ThesisController,
   ],
   components: [
     InternCalculate,
     ProjectAndSpecialProblemCalculate,
     SeminarCalculate,
+    ThesisCalculate,
     InternService,
     LectureLabService,
     ProjectAndSpecialProblemService,
     SeminarService,
+    ThesisService,
     InternTransformer,
     LectureLabTransformer,
     ProjectAndSpecialProblemTransformer,
     SeminarTransformer,
+    ThesisTransformer,
     ...InternProviders,
     ...LectureLabProviders,
     ...ProjectAndSpecialProblemProviders,
     ...SeminarProviders,
+    ...ThesisProviders,
   ],
   modules: [
     CommonModule,
