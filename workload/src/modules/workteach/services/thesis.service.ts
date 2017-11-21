@@ -9,7 +9,7 @@ import { IThesis } from '../interfaces/thesis.interface';
 @Component()
 export class ThesisService {
   constructor(
-    @Inject(Cons.InternModelToken) private readonly thesisModel: Model<IThesis>,
+    @Inject(Cons.ThesisModelToken) private readonly thesisModel: Model<IThesis>,
     private readonly thesisCalculate: ThesisCalculate,
   ) { }
   findAll(): Observable<any[]> {

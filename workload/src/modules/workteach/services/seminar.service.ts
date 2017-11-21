@@ -9,7 +9,7 @@ import { ISeminar } from '../interfaces/seminar.interface';
 @Component()
 export class SeminarService {
   constructor(
-    @Inject(Cons.InternModelToken) private readonly seminarModel: Model<ISeminar>,
+    @Inject(Cons.SeminarModelToken) private readonly seminarModel: Model<ISeminar>,
     private readonly seminarCalculate: SeminarCalculate,
   ) { }
   findAll(): Observable<any[]> {
