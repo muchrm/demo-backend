@@ -24,7 +24,6 @@ export class ProjectAndSpecialProblemController {
   }
   @Post()
   create( @Res() res, @Body() createCatDto: CreateProjectAndSpecialProblemDto) {
-    // TODO: Add some logic here
-    res.status(HttpStatus.CREATED).send(createCatDto);
+    return res.status(HttpStatus.CREATED).send(this.projectAndSpecialProblemService.create(createCatDto));
   }
 }

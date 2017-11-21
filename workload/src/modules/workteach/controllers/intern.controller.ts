@@ -25,7 +25,6 @@ export class InternController {
 
   @Post()
   create( @Res() res, @Body() createCatDto: CreateInternDto) {
-    // TODO: Add some logic here
-    res.status(HttpStatus.CREATED).send(createCatDto);
+    return res.status(HttpStatus.CREATED).send(this.internService.create(createCatDto));
   }
 }

@@ -11,7 +11,7 @@ import { SeminarTransformer } from '../transformers/seminar.transformer';
 export class SeminarController {
 
   constructor(
-    private readonly internService: SeminarService,
+    private readonly seminarService: SeminarService,
     private tranformer: SeminarTransformer,
     @Inject(RabbitMQConstants.CONNECTION_TOKEN) private readonly client: ClientProxy,
   ) {
@@ -19,12 +19,11 @@ export class SeminarController {
 
   @Get()
   findAll(): Observable<CreateSeminarDto[]> {
-    return this.internService.findAll()
+    return this.seminarService.findAll()
       .map((results) => this.tranformer.collection(results));
   }
   @Post()
   create( @Res() res, @Body() createCatDto: CreateSeminarDto) {
-    // TODO: Add some logic here
-    res.status(HttpStatus.CREATED).send(createCatDto);
+    return res.status(HttpStatus.CREATED).send(this.seminarService.create(createCatDto));
   }
 }
