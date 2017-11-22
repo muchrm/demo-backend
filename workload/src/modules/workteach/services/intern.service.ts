@@ -17,6 +17,7 @@ export class InternService {
   }
   create(createInternDto: CreateInternDto): Observable<IIntern> {
     const calculatedInternDto = this.internCalculate.calculate(createInternDto);
+    console.log(calculatedInternDto);
     const createdIntern = new this.InternModel(calculatedInternDto);
     return Observable.fromPromise(createdIntern.save());
   }

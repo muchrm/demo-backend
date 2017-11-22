@@ -12,17 +12,17 @@ describe('Thesis Calculate', () => {
     internCalculate = module.get<InternCalculate>(InternCalculate);
   });
   describe('calculate', () => {
-    it('should return result of internShip supervisor', () => {
+    it('should return result of internShip supervision', () => {
       const input = {
         countStudent: 50,
-        type: 'supervisor',
-        courseType: 'internShip',
+        type: 'supervision',
+        courseType: 'วิชาฝึกงาน',
         teachers: [{}, {}],
       };
       const want = {
         countStudent: 50,
-        type: 'supervisor',
-        courseType: 'internShip',
+        type: 'supervision',
+        courseType: 'วิชาฝึกงาน',
         teachers: [
           { point: 12.5 },
           { point: 12.5 },
@@ -30,17 +30,17 @@ describe('Thesis Calculate', () => {
       };
       expect(internCalculate.calculate(input)).toEqual(want);
     });
-    it('should return result of internShip instructor', () => {
+    it('should return result of internShip coordinator', () => {
       const input = {
         countStudent: 50,
-        type: 'instructor',
-        courseType: 'internShip',
+        type: 'coordinator',
+        courseType: 'วิชาฝึกงาน',
         teachers: [{}, {}],
       };
       const want = {
         countStudent: 50,
-        type: 'instructor',
-        courseType: 'internShip',
+        type: 'coordinator',
+        courseType: 'วิชาฝึกงาน',
         teachers: [
           { point: 1 },
           { point: 1 },
@@ -48,17 +48,17 @@ describe('Thesis Calculate', () => {
       };
       expect(internCalculate.calculate(input)).toEqual(want);
     });
-    it('should return result of cooperative supervisor', () => {
+    it('should return result of cooperative supervision', () => {
       const input = {
         countStudent: 50,
-        type: 'supervisor',
-        courseType: 'cooperative',
+        type: 'supervision',
+        courseType: 'วิชาสหกิจศึกษา',
         teachers: [{}, {}],
       };
       const want = {
         countStudent: 50,
-        type: 'supervisor',
-        courseType: 'cooperative',
+        type: 'supervision',
+        courseType: 'วิชาสหกิจศึกษา',
         teachers: [
           { point: 25 },
           { point: 25 },
@@ -66,17 +66,17 @@ describe('Thesis Calculate', () => {
       };
       expect(internCalculate.calculate(input)).toEqual(want);
     });
-    it('should return result of cooperative instructor', () => {
+    it('should return result of cooperative coordinator', () => {
       const input = {
         countStudent: 50,
-        type: 'instructor',
-        courseType: 'cooperative',
+        type: 'coordinator',
+        courseType: 'วิชาสหกิจศึกษา',
         teachers: [{}, {}],
       };
       const want = {
         countStudent: 50,
-        type: 'instructor',
-        courseType: 'cooperative',
+        type: 'coordinator',
+        courseType: 'วิชาสหกิจศึกษา',
         teachers: [
           { point: 1 },
           { point: 1 },

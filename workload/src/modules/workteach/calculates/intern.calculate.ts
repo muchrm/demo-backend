@@ -22,16 +22,16 @@ export class InternCalculate {
     return this.createInternDto;
   }
   isSupervisor() {
-    return this.createInternDto.type === 'supervisor';
+    return this.createInternDto.type === 'supervision';
   }
   isInstructor() {
-    return this.createInternDto.type === 'instructor';
+    return this.createInternDto.type === 'coordinator';
   }
   isInternShip() {
-    return this.createInternDto.courseType === 'internShip';
+    return this.createInternDto.courseType === 'วิชาฝึกงาน';
   }
   isCooperative() {
-    return this.createInternDto.courseType === 'cooperative';
+    return this.createInternDto.courseType === 'วิชาสหกิจศึกษา';
   }
   calculateSupervisor() {
     const basePoint = this.isInternShip() ? POINT_SUPERVISOR_INTERNSHIP :
