@@ -1,9 +1,10 @@
 import * as mongoose from 'mongoose';
 
 export const SeminarSchema = new mongoose.Schema({
-  countStudent: Number,
-  courseType: String,
-  type: String,
+  courseCode: Number,
+  semester: Number,
+  year: Number,
+  name: String,
   teachers: [{
     _id: mongoose.Schema.Types.ObjectId,
     point: Number,

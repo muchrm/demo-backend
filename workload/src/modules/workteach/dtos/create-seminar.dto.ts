@@ -1,6 +1,7 @@
 export class CreateSeminarDto {
-  countStudent: number;
-  courseType: string;
-  type: string;
+  courseCode: number;
+  semester: number;
+  year: number;
+  name: string;
   teachers: any[];
 }
