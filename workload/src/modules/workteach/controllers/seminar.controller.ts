@@ -24,6 +24,6 @@ export class SeminarController {
   }
   @Post()
   create( @Res() res, @Body() createCatDto: CreateSeminarDto) {
-    return true; //res.status(HttpStatus.CREATED).send(this.seminarService.create(createCatDto));
+    return res.status(HttpStatus.CREATED).send(this.seminarService.create(createCatDto));
   }
 }
