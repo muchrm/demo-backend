@@ -1,9 +1,16 @@
 import * as mongoose from 'mongoose';
 
 export const ThesisSchema = new mongoose.Schema({
-  countStudent: Number,
-  courseType: String,
+  commandId: String,
+  date: String,
   type: String,
+  courseCode: Number,
+  semester: Number,
+  year: Number,
+  courseName: String,
+  name: String,
+  studentCode: String,
+  credit: Number,
   teachers: [{
     _id: mongoose.Schema.Types.ObjectId,
     point: Number,
