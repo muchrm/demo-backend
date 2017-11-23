@@ -12,13 +12,19 @@ export class InternService {
     @Inject(Cons.InternModelToken) private readonly InternModel: Model<IIntern>,
     private readonly internCalculate: InternCalculate,
   ) { }
-  findAll(): Observable<any[]> {
-    return Observable.fromPromise(this.InternModel.find());
+  findAll(type): Observable<any[]> {
+    return Observable.fromPromise(this.InternModel.find({type:type}));
   }
   create(createInternDto: CreateInternDto): Observable<IIntern> {
     const calculatedInternDto = this.internCalculate.calculate(createInternDto);
-    console.log(calculatedInternDto);
     const createdIntern = new this.InternModel(calculatedInternDto);
     return Observable.fromPromise(createdIntern.save());
+  }
+  update(id:string,createInternDto: CreateInternDto): Observable<IIntern>{
+    const calculatedInternDto = this.internCalculate.calculate(createInternDto);
+    return Observable.fromPromise(this.InternModel.findOneAndUpdate({_id:id},calculatedInternDto));  
+  }
+  delete(id:string){
+    return Observable.fromPromise(this.InternModel.find({_id:id}).remove())
   }
 }
