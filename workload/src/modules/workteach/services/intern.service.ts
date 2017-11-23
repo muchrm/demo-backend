@@ -13,7 +13,7 @@ export class InternService {
     private readonly internCalculate: InternCalculate,
   ) { }
   findAll(): Observable<any[]> {
-    return Observable.fromPromise(this.InternModel.find().populate({ path: 'teachers._id' }));
+    return Observable.fromPromise(this.InternModel.find());
   }
   create(createInternDto: CreateInternDto): Observable<IIntern> {
     const calculatedInternDto = this.internCalculate.calculate(createInternDto);

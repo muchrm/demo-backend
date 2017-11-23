@@ -10,6 +10,9 @@ export const InternSchema = new mongoose.Schema({
   type: String,
   teachers: [{
     _id: mongoose.Schema.Types.ObjectId,
+    position: String,
+    name: String,
+    lastname: String,
     point: Number,
   }],
 });

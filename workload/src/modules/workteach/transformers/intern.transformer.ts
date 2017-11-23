@@ -6,7 +6,14 @@ export class InternTransformer extends Transformer {
   transform(data) {
     return {
       id: data._id,
-      courseCodes: data.courseCodes,
+      courseCode: data.courseCode,
+      courseName: data.courseName,
+      courseType: data.courseType,
+      countStudent: data.countStudent,
+      semester: data.semester,
+      year: data.year,
+      type: data.type,
+      teachers: data.teachers,
     };
   }
 }
