@@ -4,7 +4,7 @@ services:
 matrix:
   include:
     language: go
-    go: 1.9
+    go: 1.9.x
     before_install:
       - cd authen
     install:
