@@ -5,9 +5,7 @@ matrix:
   include:
     language: go
     go:
-      - 1.8.x
-      - 1.9.x
-      - tip
+      - 1.9
     before_install:
       - cd authen
     install:
