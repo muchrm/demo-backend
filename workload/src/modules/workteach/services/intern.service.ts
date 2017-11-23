@@ -13,18 +13,18 @@ export class InternService {
     private readonly internCalculate: InternCalculate,
   ) { }
   findAll(type): Observable<any[]> {
-    return Observable.fromPromise(this.InternModel.find({type:type}));
+    return Observable.fromPromise(this.InternModel.find({type}));
   }
   create(createInternDto: CreateInternDto): Observable<IIntern> {
     const calculatedInternDto = this.internCalculate.calculate(createInternDto);
     const createdIntern = new this.InternModel(calculatedInternDto);
     return Observable.fromPromise(createdIntern.save());
   }
-  update(id:string,createInternDto: CreateInternDto): Observable<IIntern>{
+  update(id: string, createInternDto: CreateInternDto): Observable<IIntern> {
     const calculatedInternDto = this.internCalculate.calculate(createInternDto);
-    return Observable.fromPromise(this.InternModel.findOneAndUpdate({_id:id},calculatedInternDto));  
+    return Observable.fromPromise(this.InternModel.findOneAndUpdate({ _id: id }, calculatedInternDto));
   }
-  delete(id:string){
-    return Observable.fromPromise(this.InternModel.find({_id:id}).remove())
+  delete(id: string) {
+    return Observable.fromPromise(this.InternModel.find({ _id: id }).remove());
   }
 }
