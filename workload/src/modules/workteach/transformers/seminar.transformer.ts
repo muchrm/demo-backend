@@ -6,6 +6,7 @@ export class SeminarTransformer extends Transformer {
   transform(data) {
     console.log(data);
     return {
+      id: data._id,
       courseCode: data.courseCode,
       semester: data.semester,
       year: data.year,
