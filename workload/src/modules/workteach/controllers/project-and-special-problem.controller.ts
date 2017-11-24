@@ -1,7 +1,7 @@
-import { Body, Controller, Get, HttpStatus, Inject, Post, , Res } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpStatus, Inject, Param, Post, Put, Res } from '@nestjs/common';
 import { Client, ClientProxy, Transport } from '@nestjs/microservices';
 import { Observable } from 'rxjs/Rx';
-import { Constants as RabbitMQConstants} from '../../common/rabbitmq/constants';
+import { Constants as RabbitMQConstants } from '../../common/rabbitmq/constants';
 import { RabbitMQClient } from '../../common/rabbitmq/rabbitmq.client';
 import { CreateProjectAndSpecialProblemDto } from '../dtos/create-project-and-special-problem.dto';
 import { ProjectAndSpecialProblemService } from '../services/project-and-special-problem.service';
@@ -24,6 +24,20 @@ export class ProjectAndSpecialProblemController {
   }
   @Post()
   create( @Res() res, @Body() createCatDto: CreateProjectAndSpecialProblemDto) {
-    return res.status(HttpStatus.CREATED).send(this.projectAndSpecialProblemService.create(createCatDto));
+    this.projectAndSpecialProblemService.create(createCatDto).subscribe(() => {
+      res.status(HttpStatus.CREATED).send();
+    });
+  }
+  @Put(':id')
+  update( @Res() res, @Param('id') id, @Body() createCatDto: CreateProjectAndSpecialProblemDto) {
+    this.projectAndSpecialProblemService.update(id, createCatDto).subscribe(() => {
+      res.status(HttpStatus.OK).send();
+    });
+  }
+  @Delete(':id')
+  delete( @Res() res, @Param('id') id) {
+    this.projectAndSpecialProblemService.delete(id).subscribe(() => {
+      res.status(HttpStatus.OK).send();
+    });
   }
 }

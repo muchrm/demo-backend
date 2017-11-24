@@ -20,4 +20,13 @@ export class ThesisService {
     const createdThesis = new this.thesisModel(calculatedThesisDto);
     return Observable.fromPromise(createdThesis.save());
   }
+
+  update(id: string, createThesisDto: CreateThesisDto): Observable<IThesis> {
+    const calculatedThesisDto = this.thesisCalculate.calculate(createThesisDto);
+    return Observable.fromPromise(this.thesisModel.findOneAndUpdate({ _id: id }, calculatedThesisDto));
+  }
+
+  delete(id: string) {
+    return Observable.fromPromise(this.thesisModel.find({ _id: id }).remove());
+  }
 }

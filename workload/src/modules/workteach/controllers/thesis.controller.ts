@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpStatus, Inject, Post, , Res } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpStatus, Inject, Param, Post, Put, Query, Res } from '@nestjs/common';
 import { Client, ClientProxy, Transport } from '@nestjs/microservices';
 import { Observable } from 'rxjs/Rx';
 import { Constants as RabbitMQConstants} from '../../common/rabbitmq/constants';
@@ -24,6 +24,20 @@ export class ThesisController {
   }
   @Post()
   create( @Res() res, @Body() createCatDto: CreateThesisDto) {
-    return res.status(HttpStatus.CREATED).send(this.thesisService.create(createCatDto));
+    this.thesisService.create(createCatDto).subscribe(() => {
+      res.status(HttpStatus.CREATED).send();
+    });
+  }
+  @Put(':id')
+  update( @Res() res, @Param('id') id, @Body() createCatDto: CreateThesisDto) {
+    this.thesisService.update(id, createCatDto).subscribe(() => {
+      res.status(HttpStatus.OK).send();
+    });
+  }
+  @Delete(':id')
+  delete( @Res() res, @Param('id') id) {
+    this.thesisService.delete(id).subscribe(() => {
+      res.status(HttpStatus.OK).send();
+    });
   }
 }
