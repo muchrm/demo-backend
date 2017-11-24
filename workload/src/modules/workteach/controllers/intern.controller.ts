@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpStatus, Inject, Param, Post, Put, Query, Res } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Headers, HttpStatus, Inject, Param, Post, Put, Query, Res } from '@nestjs/common';
 import { Client, ClientProxy, Transport } from '@nestjs/microservices';
 import { Observable } from 'rxjs/Rx';
 import { Constants as RabbitMQConstants } from '../../common/rabbitmq/constants';
@@ -42,8 +42,7 @@ export class InternController {
     });
   }
   @Get('teacher')
-  findByTeacher( @Res() res) {
-    console.log(res);
-    return true;
+  findByTeacher( @Headers('x-consumer-custom-id') customId) {
+    return customId;
   }
 }

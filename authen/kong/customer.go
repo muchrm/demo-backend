@@ -22,8 +22,9 @@ func (c *CustomerService) Get(username string) (*Customer, error) {
 	_, err = c.client.Do(req, customer)
 	return customer, err
 }
-func (c *CustomerService) Add(username string) (*Customer, error) {
-	values := map[string]string{"username": username}
+
+func (c *CustomerService) Add(username string, custom_id string) (*Customer, error) {
+	values := map[string]string{"username": username, "custom_id": custom_id}
 	jsonValue, _ := json.Marshal(values)
 	req, err := c.client.Post("/consumers/", bytes.NewBuffer(jsonValue))
 	req.Header.Set("Content-Type", "application/json")
