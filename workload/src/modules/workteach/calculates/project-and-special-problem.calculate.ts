@@ -2,9 +2,9 @@ import { Component } from '@nestjs/common';
 import { CreateInternDto } from '../dtos/create-intern.dto';
 import { CreateProjectAndSpecialProblemDto } from '../dtos/create-project-and-special-problem.dto';
 
-const CHAIRMAN = 'chairman';
-const ADVISOR = 'advisor';
-const CO_ADVISOR = 'coAdvisor';
+const CHAIRMAN = 'ประธาน';
+const ADVISOR = 'ที่ปรึกษาหลัก';
+const CO_ADVISOR = 'ที่ปรึกษาร่วม';
 
 @Component()
 export class ProjectAndSpecialProblemCalculate {
