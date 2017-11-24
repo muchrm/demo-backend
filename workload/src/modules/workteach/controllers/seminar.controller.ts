@@ -25,19 +25,19 @@ export class SeminarController {
   @Post()
   create( @Res() res, @Body() createCatDto: CreateSeminarDto) {
     this.seminarService.create(createCatDto).subscribe(() => {
-      res.status(HttpStatus.CREATED).send();
+      res.status(HttpStatus.CREATED).send({});
     });
   }
   @Put(':id')
   update( @Res() res, @Param('id') id, @Body() createCatDto: CreateSeminarDto) {
     this.seminarService.update(id, createCatDto).subscribe(() => {
-      res.status(HttpStatus.OK).send();
+      res.status(HttpStatus.OK).send({});
     });
   }
   @Delete(':id')
   delete( @Res() res, @Param('id') id) {
     this.seminarService.delete(id).subscribe(() => {
-      res.status(HttpStatus.OK).send();
+      res.status(HttpStatus.OK).send({});
     });
   }
 }

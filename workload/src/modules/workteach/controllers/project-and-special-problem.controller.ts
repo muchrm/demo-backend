@@ -25,19 +25,19 @@ export class ProjectAndSpecialProblemController {
   @Post()
   create( @Res() res, @Body() createCatDto: CreateProjectAndSpecialProblemDto) {
     this.projectAndSpecialProblemService.create(createCatDto).subscribe(() => {
-      res.status(HttpStatus.CREATED).send();
+      res.status(HttpStatus.CREATED).send({});
     });
   }
   @Put(':id')
   update( @Res() res, @Param('id') id, @Body() createCatDto: CreateProjectAndSpecialProblemDto) {
     this.projectAndSpecialProblemService.update(id, createCatDto).subscribe(() => {
-      res.status(HttpStatus.OK).send();
+      res.status(HttpStatus.OK).send({});
     });
   }
   @Delete(':id')
   delete( @Res() res, @Param('id') id) {
     this.projectAndSpecialProblemService.delete(id).subscribe(() => {
-      res.status(HttpStatus.OK).send();
+      res.status(HttpStatus.OK).send({});s
     });
   }
 }

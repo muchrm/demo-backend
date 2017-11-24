@@ -25,19 +25,19 @@ export class ThesisController {
   @Post()
   create( @Res() res, @Body() createCatDto: CreateThesisDto) {
     this.thesisService.create(createCatDto).subscribe(() => {
-      res.status(HttpStatus.CREATED).send();
+      res.status(HttpStatus.CREATED).send({});
     });
   }
   @Put(':id')
   update( @Res() res, @Param('id') id, @Body() createCatDto: CreateThesisDto) {
     this.thesisService.update(id, createCatDto).subscribe(() => {
-      res.status(HttpStatus.OK).send();
+      res.status(HttpStatus.OK).send({});
     });
   }
   @Delete(':id')
   delete( @Res() res, @Param('id') id) {
     this.thesisService.delete(id).subscribe(() => {
-      res.status(HttpStatus.OK).send();
+      res.status(HttpStatus.OK).send({});
     });
   }
 }

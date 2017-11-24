@@ -26,19 +26,19 @@ export class InternController {
   @Post()
   create( @Res() res, @Body() createCatDto: CreateInternDto) {
     this.internService.create(createCatDto).subscribe(() => {
-      res.status(HttpStatus.CREATED).send();
+      res.status(HttpStatus.CREATED).send({});
     });
   }
   @Put(':id')
   update( @Res() res, @Param('id') id, @Body() createCatDto: CreateInternDto) {
     this.internService.update(id, createCatDto).subscribe(() => {
-      res.status(HttpStatus.OK).send();
+      res.status(HttpStatus.OK).send({});
     });
   }
   @Delete(':id')
   async delete( @Res() res, @Param('id') id) {
     this.internService.delete(id).subscribe(() => {
-      res.status(HttpStatus.OK).send();
+      res.status(HttpStatus.OK).send({});
     });
   }
 }
