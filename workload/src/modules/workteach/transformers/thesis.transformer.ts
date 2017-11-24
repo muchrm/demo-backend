@@ -6,8 +6,17 @@ export class ThesisTransformer extends Transformer {
   transform(data) {
     console.log(data);
     return {
-      id: data._id,
-      courseCodes: data.courseCodes,
+      commandId: data.commandId,
+      date: data.date,
+      type: data.type,
+      courseCode: data.courseCode,
+      semester: data.semester,
+      year: data.year,
+      courseName: data.courseName,
+      name: data.name,
+      studentCode: data.studentCode,
+      credit: data.credit,
+      teachers: data.teachers,
     };
   }
 }

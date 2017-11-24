@@ -41,4 +41,9 @@ export class InternController {
       res.status(HttpStatus.OK).json({});
     });
   }
+  @Get('teacher')
+  findByTeacher( @Res() res) {
+    console.log(res);
+    return true;
+  }
 }
