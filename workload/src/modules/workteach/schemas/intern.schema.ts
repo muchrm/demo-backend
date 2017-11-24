@@ -14,5 +14,7 @@ export const InternSchema = new mongoose.Schema({
     name: String,
     lastname: String,
     point: Number,
+    appointment: String,
+    percent: String,
   }],
 });

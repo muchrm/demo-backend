@@ -7,6 +7,11 @@ export const SeminarSchema = new mongoose.Schema({
   name: String,
   teachers: [{
     _id: mongoose.Schema.Types.ObjectId,
+    position: String,
+    name: String,
+    lastname: String,
     point: Number,
+    appointment: String,
+    percent: String,
   }],
 });

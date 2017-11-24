@@ -13,6 +13,11 @@ export const ThesisSchema = new mongoose.Schema({
   credit: Number,
   teachers: [{
     _id: mongoose.Schema.Types.ObjectId,
+    position: String,
+    name: String,
+    lastname: String,
     point: Number,
+    appointment: String,
+    percent: String,
   }],
 });
