@@ -37,7 +37,7 @@ export class ProjectAndSpecialProblemController {
   @Delete(':id')
   delete( @Res() res, @Param('id') id) {
     this.projectAndSpecialProblemService.delete(id).subscribe(() => {
-      res.status(HttpStatus.OK).send({});s
+      res.status(HttpStatus.OK).send({});
     });
   }
 }
