@@ -11,6 +11,8 @@ export class SeminarTransformer extends Transformer {
       year: data.year,
       name: data.name,
       teachers: data.teachers,
+      type: data.type,
+      levelName: data.levelName,
     };
   }
 }

@@ -4,4 +4,6 @@ export class CreateSeminarDto {
   year: number;
   name: string;
   teachers: any[];
+  type: string;
+  levelName: string;
 }

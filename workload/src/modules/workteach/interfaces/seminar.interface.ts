@@ -5,4 +5,6 @@ export interface ISeminar extends Document {
   year: number;
   name: string;
   teachers: any[];
+  type: string;
+  levelName: string;
 }

@@ -1,6 +1,8 @@
 import * as mongoose from 'mongoose';
 
 export const SeminarSchema = new mongoose.Schema({
+  type: String,
+  levelName: String,
   courseCode: Number,
   semester: Number,
   year: Number,
