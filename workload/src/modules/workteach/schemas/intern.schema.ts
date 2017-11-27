@@ -9,7 +9,7 @@ export const InternSchema = new mongoose.Schema({
   year: Number,
   type: String,
   teachers: [{
-    _id: mongoose.Schema.Types.ObjectId,
+    id: mongoose.Schema.Types.ObjectId,
     position: String,
     name: String,
     lastname: String,

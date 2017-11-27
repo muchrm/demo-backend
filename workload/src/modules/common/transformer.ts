@@ -9,7 +9,7 @@ export abstract class Transformer {
   abstract transform(data);
   sortTeachers(data, teacherId) {
     return _.sortBy(data.teachers || [], (teacher) => {
-      return teacher._id !== teacherId;
+      return teacher.id !== teacherId;
     });
   }
 }

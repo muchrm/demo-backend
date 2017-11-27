@@ -15,6 +15,10 @@ export class InternService {
   findAll(option): Observable<any[]> {
     return Observable.fromPromise(this.InternModel.find(option));
   }
+  findByTeacher(id, option): Observable<any[]> {
+    option.teachers = { $elemMatch: { id } };
+    return Observable.fromPromise(this.InternModel.find(option));
+  }
   create(createInternDto: CreateInternDto): Observable<IIntern> {
     const calculatedInternDto = this.internCalculate.calculate(createInternDto);
     const createdIntern = new this.InternModel(calculatedInternDto);
