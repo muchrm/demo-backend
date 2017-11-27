@@ -3,19 +3,18 @@ import * as _ from 'lodash';
 import { Transformer } from '../../common/transformer';
 
 @Component()
-export class TeacherInternTransformer extends Transformer {
+export class TeacherSeminarTransformer extends Transformer {
   transform(data) {
     const teacher = _.find(data.teachers, (x) => String(x.id) === this.teacherId);
     return {
       id: data._id,
       courseCode: data.courseCode,
-      courseName: data.courseName,
-      courseType: data.courseType,
-      countStudent: data.countStudent,
       semester: data.semester,
       year: data.year,
+      name: data.name,
+      teachers: data.teachers,
       type: data.type,
-      point: teacher.point,
+      levelName: teacher.point,
     };
   }
 }

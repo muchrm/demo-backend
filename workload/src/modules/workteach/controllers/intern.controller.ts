@@ -41,8 +41,4 @@ export class InternController {
       res.status(HttpStatus.OK).json({});
     });
   }
-  @Get('teacher')
-  findByTeacher( @Headers('x-consumer-custom-id') customId) {
-    return customId;
-  }
 }

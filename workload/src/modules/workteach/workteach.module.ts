@@ -7,12 +7,16 @@ import { ProjectAndSpecialProblemCalculate } from './calculates/project-and-spec
 import { SeminarCalculate } from './calculates/seminar.calculate';
 import { ThesisCalculate } from './calculates/thesis.calculate';
 import { InternController } from './controllers/intern.controller';
-import { TeacherInternController } from './controllers/teacher-intern.controller';
 
 import { LectureLabController } from './controllers/lecture-lab.controller';
 import { ProjectAndSpecialProblemController } from './controllers/project-and-special-problem.controller';
 import { SeminarController } from './controllers/seminar.controller';
 import { ThesisController } from './controllers/thesis.controller';
+
+import { TeacherInternController } from './controllers/teacher-intern.controller';
+import { TeacherProjectAndSpecialProblemController } from './controllers/teacher-project-and-special-problem.controller';
+import { TeacherSeminarController } from './controllers/teacher-seminar.controller';
+import { TeacherTeacherThesisController } from './controllers/teacher-thesis.controller';
 
 import { InternProviders } from './providers/intern.providers';
 import { LectureLabProviders } from './providers/lecture-lab.providers';
@@ -30,8 +34,12 @@ import { InternTransformer } from './transformers/intern.transformer';
 import { LectureLabTransformer } from './transformers/lecture-lab.transformer';
 import { ProjectAndSpecialProblemTransformer } from './transformers/project-and-special-problem.transformer';
 import { SeminarTransformer } from './transformers/seminar.transformer';
-import { TeacherInternTransformer } from './transformers/teacher-intern.transformer';
 import { ThesisTransformer } from './transformers/thesis.transformer';
+
+import { TeacherInternTransformer } from './transformers/teacher-intern.transformer';
+import { TeacherProjectAndSpecialProblemTransformer } from './transformers/teacher-project-and-special-problem.transformer';
+import { TeacherSeminarTransformer } from './transformers/teacher-seminar.transformer';
+import { TeacherThesisTransformer } from './transformers/teacher-thesis.transformer';
 
 @Module({
   controllers: [
@@ -39,25 +47,35 @@ import { ThesisTransformer } from './transformers/thesis.transformer';
     LectureLabController,
     ProjectAndSpecialProblemController,
     SeminarController,
-    TeacherInternController,
     ThesisController,
+    TeacherInternController,
+    TeacherProjectAndSpecialProblemController,
+    TeacherSeminarController,
+    TeacherTeacherThesisController,
   ],
   components: [
     InternCalculate,
     ProjectAndSpecialProblemCalculate,
     SeminarCalculate,
     ThesisCalculate,
+
     InternService,
     LectureLabService,
     ProjectAndSpecialProblemService,
     SeminarService,
     ThesisService,
+
     InternTransformer,
     LectureLabTransformer,
     ProjectAndSpecialProblemTransformer,
     SeminarTransformer,
-    TeacherInternTransformer,
     ThesisTransformer,
+
+    TeacherInternTransformer,
+    TeacherProjectAndSpecialProblemTransformer,
+    TeacherSeminarTransformer,
+    TeacherThesisTransformer,
+
     ...InternProviders,
     ...LectureLabProviders,
     ...ProjectAndSpecialProblemProviders,

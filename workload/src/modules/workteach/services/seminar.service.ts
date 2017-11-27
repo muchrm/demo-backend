@@ -16,6 +16,11 @@ export class SeminarService {
     return Observable.fromPromise(this.seminarModel.find(option));
   }
 
+  findByTeacher(id, option): Observable<any[]> {
+    option.teachers = { $elemMatch: { id } };
+    return Observable.fromPromise(this.seminarModel.find(option));
+  }
+
   create(createSeminarDto: CreateSeminarDto): Observable<ISeminar> {
     const calculatedSeminarDto = this.seminarCalculate.calculate(createSeminarDto);
     const createdSeminar = new this.seminarModel(calculatedSeminarDto);

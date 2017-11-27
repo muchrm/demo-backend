@@ -1,5 +1,9 @@
 import * as _ from 'lodash';
 export abstract class Transformer {
+  protected teacherId: string;
+  setTeacherId(id) {
+    this.teacherId = id;
+  }
   collection(datas) {
     return datas.map((data) => this.item(data));
   }

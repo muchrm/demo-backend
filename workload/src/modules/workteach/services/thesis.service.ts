@@ -15,6 +15,11 @@ export class ThesisService {
   findAll(): Observable<any[]> {
     return Observable.fromPromise(this.thesisModel.find());
   }
+
+  findByTeacher(id): Observable<any[]> {
+    return Observable.fromPromise(this.thesisModel.find({ teachers: { $elemMatch: { id } } }));
+  }
+
   create(createThesisDto: CreateThesisDto): Observable<IThesis> {
     const calculatedThesisDto = this.thesisCalculate.calculate(createThesisDto);
     const createdThesis = new this.thesisModel(calculatedThesisDto);

@@ -17,7 +17,9 @@ export class ProjectAndSpecialProblemService {
     return Observable.fromPromise(this.projectAndSpecialProblemModel.find());
 
   }
-
+  findByTeacher(id): Observable<any[]> {
+    return Observable.fromPromise(this.projectAndSpecialProblemModel.find({ teachers: { $elemMatch: { id } } }));
+  }
   create(createProjectAndSpecialProblemDto: CreateProjectAndSpecialProblemDto): Observable<IProjectAndSpecialProblem> {
     const calculatedProjectAndSpecialProblemDto = this.projectAndSpecialProblemCalculate.calculate(createProjectAndSpecialProblemDto);
     const createdProjectAndSpecialProblem = new this.projectAndSpecialProblemModel(calculatedProjectAndSpecialProblemDto);
