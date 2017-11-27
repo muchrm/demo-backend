@@ -3,4 +3,4 @@ import { Module } from '@nestjs/common';
   modules: [
   ],
 })
-export class ResearchGrantModule { }
+export class ContractModule { }

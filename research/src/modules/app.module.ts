@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { ResearchGrantModule } from './research-grant/research-grant.module';
+import { ResearchModule } from './research/research.module';
 @Module({
   modules: [
-    ResearchGrantModule,
+    ResearchModule,
   ],
 })
 export class ApplicationModule { }
