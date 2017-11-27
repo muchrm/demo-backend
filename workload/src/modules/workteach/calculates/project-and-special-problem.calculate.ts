@@ -30,21 +30,23 @@ export class ProjectAndSpecialProblemCalculate {
     this.pointPerCoAdvisor = this.pointCoAdvisor / countCoAdvisor;
   }
   AssignToTeachers(): any {
-    this.createProjectAndSpecialProblemDto.teachers.forEach((teacher) => {
-      switch (teacher.appointment) {
-        case CHAIRMAN:
-          teacher.point = this.pointChairman;
-          break;
-        case ADVISOR:
-          teacher.point = this.pointAdvisor;
-          break;
-        case CO_ADVISOR:
-          teacher.point = this.pointPerCoAdvisor;
-          break;
-        default:
-          teacher.point = 0;
-          break;
-      }
-    });
+    if (this.createProjectAndSpecialProblemDto.teachers !== undefined) {
+      this.createProjectAndSpecialProblemDto.teachers.forEach((teacher) => {
+        switch (teacher.appointment) {
+          case CHAIRMAN:
+            teacher.point = this.pointChairman;
+            break;
+          case ADVISOR:
+            teacher.point = this.pointAdvisor;
+            break;
+          case CO_ADVISOR:
+            teacher.point = this.pointPerCoAdvisor;
+            break;
+          default:
+            teacher.point = 0;
+            break;
+        }
+      });
+    }
   }
 }

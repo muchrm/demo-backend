@@ -12,7 +12,7 @@ export class SeminarService {
     @Inject(Cons.SeminarModelToken) private readonly seminarModel: Model<ISeminar>,
     private readonly seminarCalculate: SeminarCalculate,
   ) { }
-  findAll(): Observable<any[]> {
+  findAll(option): Observable<any[]> {
     return Observable.fromPromise(this.seminarModel.find().populate({ path: 'teachers._id' }));
   }
 

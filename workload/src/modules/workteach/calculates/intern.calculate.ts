@@ -42,9 +42,11 @@ export class InternCalculate {
     this.point = POINT_INSTRUCTOR;
   }
   assignToTeachers() {
-    const pointPerTeacher = this.point / this.createInternDto.teachers.length;
-    this.createInternDto.teachers.forEach((teacher) => {
-      teacher.point = pointPerTeacher;
-    });
+    if (this.createInternDto.teachers !== undefined) {
+      const pointPerTeacher = this.point / this.createInternDto.teachers.length;
+      this.createInternDto.teachers.forEach((teacher) => {
+        teacher.point = pointPerTeacher;
+      });
+    }
   }
 }

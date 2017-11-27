@@ -18,8 +18,8 @@ export class SeminarController {
   }
 
   @Get()
-  findAll(): Observable<CreateSeminarDto[]> {
-    return this.seminarService.findAll()
+  findAll( @Query('type') type: string, @Query('level') levelName: string): Observable<CreateSeminarDto[]> {
+    return this.seminarService.findAll({ type, levelName })
       .map((results) => this.tranformer.collection(results));
   }
   @Post()

@@ -12,8 +12,8 @@ export class InternService {
     @Inject(Cons.InternModelToken) private readonly InternModel: Model<IIntern>,
     private readonly internCalculate: InternCalculate,
   ) { }
-  findAll(type): Observable<any[]> {
-    return Observable.fromPromise(this.InternModel.find({type}));
+  findAll(option): Observable<any[]> {
+    return Observable.fromPromise(this.InternModel.find(option));
   }
   create(createInternDto: CreateInternDto): Observable<IIntern> {
     const calculatedInternDto = this.internCalculate.calculate(createInternDto);

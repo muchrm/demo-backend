@@ -19,7 +19,7 @@ export class InternController {
 
   @Get()
   findAll( @Query('type') type: string): Observable<CreateInternDto[]> {
-    return this.internService.findAll(type)
+    return this.internService.findAll({type})
       .map((results) => this.tranformer.collection(results));
   }
 

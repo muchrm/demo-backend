@@ -27,24 +27,26 @@ export class SeminarCalculate {
     this.pointJude = countJude <= MAX_JUDE ? POINT_JUDE : (POINT_JUDE * MAX_JUDE) / countJude;
   }
   assignToTeachers() {
-    this.createSeminarDto.teachers.forEach((teacher) => {
-      switch (teacher.appointment) {
-        case ADVISOR:
-          teacher.point = POINT_ADVISOR;
-          break;
-        case JUDE:
-          teacher.point = this.pointJude;
-          break;
-        case INSTRUCTOR:
-          teacher.point = POINT_INSTRUCTOR;
-          break;
-        case LECTURER:
-          teacher.point = POINT_LECTURER;
-          break;
-        default:
-          teacher.point = 0;
-          break;
-      }
-    });
+    if (this.createSeminarDto.teachers !== undefined) {
+      this.createSeminarDto.teachers.forEach((teacher) => {
+        switch (teacher.appointment) {
+          case ADVISOR:
+            teacher.point = POINT_ADVISOR;
+            break;
+          case JUDE:
+            teacher.point = this.pointJude;
+            break;
+          case INSTRUCTOR:
+            teacher.point = POINT_INSTRUCTOR;
+            break;
+          case LECTURER:
+            teacher.point = POINT_LECTURER;
+            break;
+          default:
+            teacher.point = 0;
+            break;
+        }
+      });
+    }
   }
 }

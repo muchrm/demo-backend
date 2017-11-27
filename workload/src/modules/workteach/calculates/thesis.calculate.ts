@@ -29,18 +29,20 @@ export class ThesisCalculate {
     return this.createThesisDto.type === 'thesis';
   }
   assignToTeachers() {
-    this.createThesisDto.teachers.forEach((teacher) => {
-      switch (teacher.appointment) {
-        case ADVISOR:
-          teacher.point = this.pointAdvisor;
-          break;
-        case COADVISOR:
-          teacher.point = this.pointCoAdvisor;
-          break;
-        default:
-          teacher.point = 0;
-          break;
-      }
-    });
+    if (this.createThesisDto.teachers !== undefined) {
+      this.createThesisDto.teachers.forEach((teacher) => {
+        switch (teacher.appointment) {
+          case ADVISOR:
+            teacher.point = this.pointAdvisor;
+            break;
+          case COADVISOR:
+            teacher.point = this.pointCoAdvisor;
+            break;
+          default:
+            teacher.point = 0;
+            break;
+        }
+      });
+    }
   }
 }
