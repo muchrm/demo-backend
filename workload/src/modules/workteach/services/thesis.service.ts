@@ -13,7 +13,7 @@ export class ThesisService {
     private readonly thesisCalculate: ThesisCalculate,
   ) { }
   findAll(): Observable<any[]> {
-    return Observable.fromPromise(this.thesisModel.find().populate({ path: 'teachers._id' }));
+    return Observable.fromPromise(this.thesisModel.find());
   }
   create(createThesisDto: CreateThesisDto): Observable<IThesis> {
     const calculatedThesisDto = this.thesisCalculate.calculate(createThesisDto);

@@ -14,7 +14,7 @@ export class ProjectAndSpecialProblemService {
   ) { }
 
   findAll(): Observable<any[]> {
-    return Observable.fromPromise(this.projectAndSpecialProblemModel.find().populate({ path: 'teachers._id' }));
+    return Observable.fromPromise(this.projectAndSpecialProblemModel.find());
 
   }
 

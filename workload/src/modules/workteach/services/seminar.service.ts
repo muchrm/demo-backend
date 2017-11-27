@@ -13,7 +13,7 @@ export class SeminarService {
     private readonly seminarCalculate: SeminarCalculate,
   ) { }
   findAll(option): Observable<any[]> {
-    return Observable.fromPromise(this.seminarModel.find().populate({ path: 'teachers._id' }));
+    return Observable.fromPromise(this.seminarModel.find(option));
   }
 
   create(createSeminarDto: CreateSeminarDto): Observable<ISeminar> {
