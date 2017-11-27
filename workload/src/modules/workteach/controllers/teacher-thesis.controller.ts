@@ -14,8 +14,7 @@ export class TeacherTeacherThesisController {
     private readonly thesisService: ThesisService,
     private tranformer: TeacherThesisTransformer,
     @Inject(RabbitMQConstants.CONNECTION_TOKEN) private readonly client: ClientProxy,
-  ) {
-  }
+  ) {}
 
   @Get()
   findByTeacher( @Headers('x-consumer-custom-id') teacherId) {
