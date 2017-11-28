@@ -20,13 +20,35 @@ services:
     dns:
       - 127.0.0.1
 
+  nginx-lb:
+  build: nginx/
+  depends_on:
+    consul:
+      condition: service_healthy
+  ports:
+    - 8000:8000
+    - 8443:8443
+    - 8001:8001
+    - 8444:8444
+  expose:
+    - 8000
+    - 8443
+    - 8001
+    - 8444
+  links:
+    - consul:consul
+  command: >
+      /bin/containerpilot
+      -config file:///etc/containerpilot/containerpilot.json
+      nginx -g "daemon off;
+
   kong-database:
     image: postgres:10
     container_name: kong-db
     environment:
       - POSTGRES_USER=kong
       - POSTGRES_DB=kong
-    volumes: 
+    volumes:
       - ./backup/pg:/backup:rw
       - ./data/pg:/var/lib/postgresql/data
     healthcheck:
@@ -45,11 +67,6 @@ services:
       - KONG_DATABASE=postgres
       - KONG_PG_HOST=kong-database
       - KONG_PG_DATABASE=kong
-    ports:
-      - 8000:8000
-      - 8443:8443
-      - 8001:8001
-      - 8444:8444
     links:
       - workload
     expose:
@@ -86,6 +103,13 @@ services:
       - rabbitmq
     volumes:
       - ./workload:/work:rw
+
+  upload:
+    build: ./upload
+    image: mis/upload
+    container_name: mis-upload
+    volumes:
+      - ./data/uploads:/work/uploads:rw
 
   personnel:
     build: ./personnel

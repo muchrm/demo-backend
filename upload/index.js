@@ -15,7 +15,8 @@ app.post('/', function (req, res) {
       status: true,
       data: {
         filepath: req.file.path,
-        name:req.file.originalname
+        name:req.file.originalname,
+        type:req.file.mimetype
       }
     }));
   });
