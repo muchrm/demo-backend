@@ -8,4 +8,4 @@ WORKDIR /work
 ENTRYPOINT yarn start:watch
 
 # Service listens on port 3000.
-EXPOSE 3000
+# EXPOSE 3000

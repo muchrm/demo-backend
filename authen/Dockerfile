@@ -19,4 +19,4 @@ WORKDIR /root
 COPY main /root
 
 CMD /bin/containerpilot ./main
-EXPOSE 3000
+# EXPOSE 3000

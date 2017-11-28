@@ -21,26 +21,27 @@ services:
       - 127.0.0.1
 
   nginx-lb:
-  build: nginx/
-  depends_on:
-    consul:
-      condition: service_healthy
-  ports:
-    - 8000:8000
-    - 8443:8443
-    - 8001:8001
-    - 8444:8444
-  expose:
-    - 8000
-    - 8443
-    - 8001
-    - 8444
-  links:
-    - consul:consul
-  command: >
-      /bin/containerpilot
-      -config file:///etc/containerpilot/containerpilot.json
-      nginx -g "daemon off;
+    build: nginx/
+    container_name: nginx-lb
+    depends_on:
+      consul:
+        condition: service_healthy
+    ports:
+      - 8000:8000
+      - 8443:8443
+      - 8001:8001
+      - 8444:8444
+    expose:
+      - 8000
+      - 8443
+      - 8001
+      - 8444
+    links:
+      - consul:consul
+    command: >
+        /bin/containerpilot
+        -config file:///etc/containerpilot/containerpilot.json
+        nginx -g "daemon off;"
 
   kong-database:
     image: postgres:10
@@ -86,7 +87,7 @@ services:
       - 9001:8080
 
   authen:
-    build: ./authen
+    build: authen/
     image: mis/authen
     container_name: mis-authen
     depends_on:
@@ -95,7 +96,7 @@ services:
       - ./authen:/work:rw
 
   workload:
-    build: ./workload
+    build: workload/
     image: mis/workload
     container_name: mis-workload
     depends_on:
@@ -105,14 +106,14 @@ services:
       - ./workload:/work:rw
 
   upload:
-    build: ./upload
+    build: upload/
     image: mis/upload
     container_name: mis-upload
     volumes:
       - ./data/uploads:/work/uploads:rw
 
   personnel:
-    build: ./personnel
+    build: personnel/
     image: mis/personnel
     container_name: mis-personnel
     depends_on:
