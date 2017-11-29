@@ -59,7 +59,8 @@ services:
     build: kong-dashboard/
     container_name: kong-dashboard
     depends_on:
-      - kong
+      kong:
+        condition: service_healthy
     ports:
       - 9001:8080
 
