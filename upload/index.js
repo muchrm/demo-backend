@@ -21,7 +21,9 @@ app.post('/', function (req, res) {
     }));
   });
 });
-
+app.get('/health', function (req, res) {
+  res.end("service healthly");
+});
 var PORT = process.env.PORT || 3000;
 
 app.listen(PORT, function () {

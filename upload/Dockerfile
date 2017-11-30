@@ -23,4 +23,4 @@ RUN yarn
 ENTRYPOINT /bin/containerpilot yarn start
 
 # Service listens on port 3000.
-# EXPOSE 3000
+EXPOSE 3000
