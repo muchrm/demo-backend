@@ -6,9 +6,9 @@ import { InternCalculate } from './calculates/intern.calculate';
 import { ProjectAndSpecialProblemCalculate } from './calculates/project-and-special-problem.calculate';
 import { SeminarCalculate } from './calculates/seminar.calculate';
 import { ThesisCalculate } from './calculates/thesis.calculate';
-import { StaffInternController } from './controllers/staff-intern.controller';
 
 import { LectureLabController } from './controllers/lecture-lab.controller';
+import { StaffInternController } from './controllers/staff-intern.controller';
 import { StaffProjectAndSpecialProblemController } from './controllers/staff-project-and-special-problem.controller';
 import { StaffSeminarController } from './controllers/staff-seminar.controller';
 import { StaffThesisController } from './controllers/staff-thesis.controller';
