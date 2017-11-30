@@ -7,8 +7,8 @@ import { CreateSeminarDto } from '../dtos/create-seminar.dto';
 import { SeminarService } from '../services/seminar.service';
 import { SeminarTransformer } from '../transformers/seminar.transformer';
 
-@Controller('workteach/seminar')
-export class SeminarController {
+@Controller('staff/workteach/seminar')
+export class StaffSeminarController {
 
   constructor(
     private readonly seminarService: SeminarService,

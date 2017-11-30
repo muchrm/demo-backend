@@ -7,8 +7,8 @@ import { CreateThesisDto } from '../dtos/create-thesis.dto';
 import { ThesisService } from '../services/thesis.service';
 import { ThesisTransformer } from '../transformers/thesis.transformer';
 
-@Controller('workteach/thesis')
-export class ThesisController {
+@Controller('staff/workteach/thesis')
+export class StaffThesisController {
 
   constructor(
     private readonly thesisService: ThesisService,

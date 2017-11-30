@@ -7,8 +7,8 @@ import { CreateInternDto } from '../dtos/create-intern.dto';
 import { InternService } from '../services/intern.service';
 import { InternTransformer } from '../transformers/intern.transformer';
 
-@Controller('workteach/intern')
-export class InternController {
+@Controller('staff/workteach/intern')
+export class StaffInternController {
 
   constructor(
     private readonly internService: InternService,

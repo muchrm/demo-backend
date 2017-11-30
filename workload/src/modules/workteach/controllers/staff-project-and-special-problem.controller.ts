@@ -7,8 +7,8 @@ import { CreateProjectAndSpecialProblemDto } from '../dtos/create-project-and-sp
 import { ProjectAndSpecialProblemService } from '../services/project-and-special-problem.service';
 import { ProjectAndSpecialProblemTransformer } from '../transformers/project-and-special-problem.transformer';
 
-@Controller('workteach/project-and-special-problem')
-export class ProjectAndSpecialProblemController {
+@Controller('staff/workteach/project-and-special-problem')
+export class StaffProjectAndSpecialProblemController {
 
   constructor(
     private readonly projectAndSpecialProblemService: ProjectAndSpecialProblemService,

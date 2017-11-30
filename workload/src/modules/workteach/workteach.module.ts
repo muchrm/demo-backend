@@ -6,12 +6,12 @@ import { InternCalculate } from './calculates/intern.calculate';
 import { ProjectAndSpecialProblemCalculate } from './calculates/project-and-special-problem.calculate';
 import { SeminarCalculate } from './calculates/seminar.calculate';
 import { ThesisCalculate } from './calculates/thesis.calculate';
-import { InternController } from './controllers/intern.controller';
+import { StaffInternController } from './controllers/staff-intern.controller';
 
 import { LectureLabController } from './controllers/lecture-lab.controller';
-import { ProjectAndSpecialProblemController } from './controllers/project-and-special-problem.controller';
-import { SeminarController } from './controllers/seminar.controller';
-import { ThesisController } from './controllers/thesis.controller';
+import { StaffProjectAndSpecialProblemController } from './controllers/staff-project-and-special-problem.controller';
+import { StaffSeminarController } from './controllers/staff-seminar.controller';
+import { StaffThesisController } from './controllers/staff-thesis.controller';
 
 import { TeacherInternController } from './controllers/teacher-intern.controller';
 import { TeacherProjectAndSpecialProblemController } from './controllers/teacher-project-and-special-problem.controller';
@@ -43,11 +43,11 @@ import { TeacherThesisTransformer } from './transformers/teacher-thesis.transfor
 
 @Module({
   controllers: [
-    InternController,
+    StaffInternController,
     LectureLabController,
-    ProjectAndSpecialProblemController,
-    SeminarController,
-    ThesisController,
+    StaffProjectAndSpecialProblemController,
+    StaffSeminarController,
+    StaffThesisController,
     TeacherInternController,
     TeacherProjectAndSpecialProblemController,
     TeacherSeminarController,
