@@ -1,31 +1,44 @@
 import { Body, Controller, Delete, Get, Headers, HttpStatus, Inject, Param, Post, Put, Query, Res } from '@nestjs/common';
 import { Client, ClientProxy, Transport } from '@nestjs/microservices';
 import { Observable } from 'rxjs/Rx';
+import { Constants as RabbitMQConstants } from '../../../common/rabbitmq/constants';
+import { RabbitMQClient } from '../../../common/rabbitmq/rabbitmq.client';
 import { ContractDto } from './contract.dto';
+import { ContractService } from './contract.service';
+import { ContractTransformer } from './contract.transformer';
 
-@Controller('workteach/intern')
-export class InternController {
+@Controller('research/grant/contract')
+export class ContractController {
 
   constructor(
-  ) {}
+    private readonly contractService: ContractService,
+    private tranformer: ContractTransformer,
+    @Inject(RabbitMQConstants.CONNECTION_TOKEN) private readonly client: ClientProxy,
+  ) {
+  }
 
   @Get()
   findAll( @Query('type') type: string): Observable<ContractDto[]> {
-    return Observable.of([]);
+    return this.contractService.findAll({type})
+      .map((results) => this.tranformer.collection(results));
   }
 
   @Post()
   create( @Res() res, @Body() createCatDto: ContractDto) {
-    return true;
+    this.contractService.create(createCatDto).subscribe(() => {
+      res.status(HttpStatus.CREATED).json({});
+    });
   }
-
   @Put(':id')
   update( @Res() res, @Param('id') id, @Body() createCatDto: ContractDto) {
-    return true;
+    this.contractService.update(id, createCatDto).subscribe(() => {
+      res.status(HttpStatus.OK).json({});
+    });
   }
-
   @Delete(':id')
-  delete( @Res() res, @Param('id') id) {
-    return true;
+  async delete( @Res() res, @Param('id') id) {
+    this.contractService.delete(id).subscribe(() => {
+      res.status(HttpStatus.OK).json({});
+    });
   }
 }
