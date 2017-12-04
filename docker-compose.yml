@@ -83,6 +83,16 @@ services:
     volumes:
       - ./workload:/work:rw
 
+  research:
+    build: research/
+    image: mis/research
+    container_name: mis-research
+    depends_on:
+      - db
+      - rabbitmq
+    volumes:
+      - ./research:/work:rw
+
   upload:
     build: upload/
     image: mis/upload
